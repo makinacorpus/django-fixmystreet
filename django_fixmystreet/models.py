@@ -8,6 +8,7 @@ from django.core.mail import send_mail, EmailMessage
 import md5
 import urllib
 import time
+from django.contrib.sites.models import Site
 import datetime
 from django_fixmystreet import emailrules
 from datetime import datetime as dt
@@ -732,7 +733,8 @@ class FMSUserManager(models.Manager):
     with django-social-auth and django-registration
     '''     
     def create_user(self, username, email, password=None):
-        user = RegistrationProfile.objects.create_inactive_user(username,password,email,send_email=False)
+        site = Site.objects.get_current()
+        user = RegistrationProfile.objects.create_inactive_user(username,email,password,site,send_email=False)
 
         if user:
             UserProfile.objects.get_or_create(user=user)

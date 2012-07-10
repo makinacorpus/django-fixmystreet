@@ -9,13 +9,13 @@ from social_auth.views import disconnect as social_disconnect
 from registration.views import register
 from django_fixmystreet.forms import FMSNewRegistrationForm,FMSAuthenticationForm
 from django.contrib.auth import views as auth_views
-from django_fixmystreet.views.mobile import open311v2 
+from django_fixmystreet.views.mobile import open311v2
 import django_fixmystreet.views.cities as cities
 
 from django_fixmystreet.views.account import SOCIAL_SUPPORTED_PROVIDERS
 
 SSL_ON = not settings.DEBUG
-    
+
 admin.autodiscover()
 urlpatterns = patterns('',
     (r'^admin/password_reset/$', 'django.contrib.auth.views.password_reset',{'SSL':SSL_ON}),
@@ -28,9 +28,44 @@ if not settings.LOGIN_DISABLED:
     urlpatterns += patterns('',
         (r'^admin/', admin.site.urls,{'SSL':SSL_ON}),
         (r'^i18n/', include('django.conf.urls.i18n')),
-        url(r'^login/(?P<backend>[^/]+)/$', social_auth, name='begin'),
-        url(r'^disconnect/(?P<backend>[^/]+)/$', social_disconnect, name='socialdisconnect'),
     )
+
+urlpatterns += patterns(
+    '',
+    (r'^', include('social_auth.urls')),
+    url('^accounts/register/$', register,
+        {'SSL':SSL_ON ,
+         'backend': settings.REGISTRATION_BACKEND,
+         'form_class': FMSNewRegistrationForm,
+         'extra_context':
+         { 'providers': SOCIAL_SUPPORTED_PROVIDERS }
+        }, name='registration_register'),
+    url('^accounts/login/$',  auth_views.login,
+        {'SSL':SSL_ON,
+         'template_name':'registration/login.html',
+         'authentication_form':FMSAuthenticationForm,
+         'extra_context':
+         {'providers': SOCIAL_SUPPORTED_PROVIDERS,
+          'login_disabled': settings.LOGIN_DISABLED }},
+        name='auth_login'),
+    url(r'^accounts/logout/$',  auth_views.logout,
+        {'SSL':SSL_ON, 'next_page': '/'},
+        name='auth_logout' ),
+    (r'^accounts/', include('registration.urls') )
+)
+
+P='django_fixmystreet.views.account.'
+urlpatterns += patterns(
+    '',
+    url(r'^accounts/home/', P+'home',{ 'SSL':SSL_ON }, name='account_home'),
+    url(r'^accounts/edit/', P+'edit', {'SSL':SSL_ON }, name='account_edit'),
+    (r'^accounts/login/error/$', P+'error'),
+    url(r'^accounts/complete/(?P<backend>[^/]+)/$',
+        P+'socialauth_complete',
+        {'SSL':SSL_ON },
+        name='socialauth_complete'),
+    (r'^accounts/', include('registration.urls') ),
+)
 
 urlpatterns += patterns('',
     (r'^feeds/cities/(\d+)$', CityIdFeed()), # backwards compatibility
@@ -57,26 +92,26 @@ urlpatterns += patterns('django_fixmystreet.views.promotion',
 )
 
 urlpatterns += patterns('django_fixmystreet.views.wards',
-    (r'^wards/(\d+)', 'show_by_id'), # support old url format       
-    (r'^cities/(\S+)/wards/(\S+)/', 'show_by_slug'),           
-    (r'^cities/(\d+)/wards/(\d+)', 'show_by_number'),           
+    (r'^wards/(\d+)', 'show_by_id'), # support old url format
+    (r'^cities/(\S+)/wards/(\S+)/', 'show_by_slug'),
+    (r'^cities/(\d+)/wards/(\d+)', 'show_by_number'),
 )
 
 urlpatterns += patterns('',
-    (r'^cities/(\d+)$', cities.show_by_id ), # support old url format   
-    (r'^cities/(\S+)/$', cities.show_by_slug ),    
+    (r'^cities/(\d+)$', cities.show_by_id ), # support old url format
+    (r'^cities/(\S+)/$', cities.show_by_slug ),
     (r'^cities/$', cities.index, {}, 'cities_url_name'),
 )
 
 urlpatterns += patterns( 'django_fixmystreet.views.reports.updates',
-    (r'^reports/updates/confirm/(\S+)', 'confirm'), 
-    (r'^reports/updates/create/', 'create'), 
+    (r'^reports/updates/confirm/(\S+)', 'confirm'),
+    (r'^reports/updates/create/', 'create'),
     (r'^reports/(\d+)/updates/', 'new'),
 )
 
 
 urlpatterns += patterns( 'django_fixmystreet.views.reports.subscribers',
-    (r'^reports/subscribers/confirm/(\S+)', 'confirm'), 
+    (r'^reports/subscribers/confirm/(\S+)', 'confirm'),
     (r'^reports/subscribers/unsubscribe/(\S+)', 'unsubscribe'),
     (r'^reports/subscribers/create/', 'create'),
     (r'^reports/(\d+)/subscribers', 'new'),
@@ -88,7 +123,7 @@ urlpatterns += patterns( 'django_fixmystreet.views.reports.flags',
 )
 
 urlpatterns += patterns('django_fixmystreet.views.reports.main',
-    (r'^reports/(\d+)$', 'show'),       
+    (r'^reports/(\d+)$', 'show'),
     (r'^reports/', 'new'),
 )
 
@@ -101,29 +136,6 @@ urlpatterns += patterns('django_fixmystreet.views.ajax',
     (r'^ajax/categories/(\d+)', 'category_desc'),
 )
 
-
-urlpatterns += patterns('',
- url('^accounts/register/$', register, {'SSL':SSL_ON , 
-                                        'form_class': FMSNewRegistrationForm,
-                                         'extra_context': 
-                                    { 'providers': SOCIAL_SUPPORTED_PROVIDERS } },name='registration_register'),
- url('^accounts/login/$',  auth_views.login, {'SSL':SSL_ON, 
-                                              'template_name':'registration/login.html',
-                                              'authentication_form':FMSAuthenticationForm,
-                                              'extra_context': 
-                                              { 'providers': SOCIAL_SUPPORTED_PROVIDERS, 'login_disabled': settings.LOGIN_DISABLED }}, name='auth_login'), 
- url(r'^accounts/logout/$',  auth_views.logout,
-                           {'SSL':SSL_ON,
-                            'next_page': '/'}, name='auth_logout' ),
- (r'^accounts/', include('registration.urls') )
-)
- 
-urlpatterns += patterns('django_fixmystreet.views.account',
-    url(r'^accounts/home/', 'home',{ 'SSL':SSL_ON },  name='account_home'),
-    url(r'^accounts/edit/', 'edit', {'SSL':SSL_ON }, name='account_edit'),
-    (r'^accounts/login/error/$', 'error'),
-    url(r'^accounts/complete/(?P<backend>[^/]+)/$', 'socialauth_complete', {'SSL':SSL_ON }, name='socialauth_complete'),
-)
 
 urlpatterns += patterns('',
     (r'^open311/v2/', open311v2.xml.urls ),

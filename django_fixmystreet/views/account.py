@@ -1,18 +1,24 @@
-from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django_fixmystreet.models import UserProfile, Report, ReportSubscriber,ReportUpdate
-from django_fixmystreet.forms import FMSNewRegistrationForm,FMSAuthenticationForm, EditProfileForm
-from django.template import Context, RequestContext
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, REDIRECT_FIELD_NAME
+from django.contrib import messages
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.core.urlresolvers import reverse
 from django.db import connection,transaction
 from django.db.models import Q
+from django_fixmystreet.models import UserProfile, Report, ReportSubscriber,ReportUpdate
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import Context, RequestContext
 from django.utils.datastructures import SortedDict
+from django.views.decorators.csrf import csrf_exempt
 from social_auth.backends import get_backend
+from social_auth.decorators import dsa_view
+from social_auth import views as sviews 
 from social_auth.models import UserSocialAuth
-from django.conf import settings
-from django.contrib.auth import login, REDIRECT_FIELD_NAME
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from social_auth.utils import setting, backend_setting
+
+from django_fixmystreet.forms import FMSNewRegistrationForm,FMSAuthenticationForm, EditProfileForm
 
 LOGO_OFFSETS = {    'facebook': 0,
                     'twitter': -128,
@@ -79,41 +85,72 @@ def edit( request ):
 
     return render_to_response("account/edit.html")
 
+
 @transaction.commit_on_success
-def socialauth_complete( request, backend ):    
+@csrf_exempt
+@dsa_view()
+def socialauth_complete(request, backend, *args, **kwargs):
     """
-       Authentication complete process -- override from the
+    Authentication complete process -- override from the
        default in django-social-auth to:
         -- collect phone numbers on registration
         -- integrate with django-registration in order
            to confirm email for new users
-    """
-    backend = get_backend(backend, request, request.path)
-    if not backend:
-        return HttpResponseServerError('Incorrect authentication service')
+    """ 
+    if request.user.is_authenticated():
+        return sviews.associate_complete(request, backend, *args, **kwargs)
+    else:
+        return complete_process(request, backend, *args, **kwargs) 
 
-    try:
-        user = backend.auth_complete()
-    except ValueError, e:  # some Authentication error ocurred
-        user = None
-        error_key = getattr(settings, 'SOCIAL_AUTH_ERROR_KEY', 'error_msg')
-        if error_key:  # store error in session
-            request.session[error_key] = str(e)
+def complete_process(request, backend, *args, **kwargs):
+    """see .socialauth_complete"""
+    # pop redirect value before the session is trashed on login()
+    redirect_value = request.session.get(REDIRECT_FIELD_NAME, '')
+    user = sviews.auth_complete(request, backend, *args, **kwargs)
+
+    if isinstance(user, HttpResponse):
+        return user
+
+    if not user and request.user.is_authenticated():
+        return HttpResponseRedirect(redirect_value)
 
     if user:
-        backend_name = backend.AUTH_BACKEND.name
         if getattr(user, 'is_active', True):
-            # a returning active user
+            # catch is_new flag before login() might reset the instance
+            is_new = getattr(user, 'is_new', False)
             login(request, user)
-            if getattr(settings, 'SOCIAL_AUTH_SESSION_EXPIRATION', True):
+            # user.social_user is the used UserSocialAuth instance defined
+            # in authenticate process
+            social_user = user.social_user
+            if redirect_value:
+                request.session[REDIRECT_FIELD_NAME] = redirect_value or \
+                                                       DEFAULT_REDIRECT
+
+            if setting('SOCIAL_AUTH_SESSION_EXPIRATION', True):
                 # Set session expiration date if present and not disabled by
-                # setting
-                social_user = user.social_auth.get(provider=backend_name)
+                # setting. Use last social-auth instance for current provider,
+                # users can associate several accounts with a same provider.
                 if social_user.expiration_delta():
                     request.session.set_expiry(social_user.expiration_delta())
-            url = request.session.pop(REDIRECT_FIELD_NAME, '') or DEFAULT_REDIRECT
-            return HttpResponseRedirect(url)
+
+            # store last login backend name in session
+            key = setting('SOCIAL_AUTH_LAST_LOGIN',
+                          'social_auth_last_login_backend')
+            request.session[key] = social_user.provider
+
+            # Remove possible redirect URL from session, if this is a new
+            # account, send him to the new-users-page if defined.
+            new_user_redirect = backend_setting(backend,
+                                           'SOCIAL_AUTH_NEW_USER_REDIRECT_URL')
+            if new_user_redirect and is_new:
+                url = new_user_redirect
+            else:
+                url = redirect_value or \
+                      backend_setting(backend,
+                                      'SOCIAL_AUTH_LOGIN_REDIRECT_URL') or \
+                      DEFAULT_REDIRECT
         else:
+            """ OVERRIDEN PART """
             # User created but not yet activated. 
             details = { 'username':user.username,
                         'first_name':user.first_name,
@@ -123,15 +160,21 @@ def socialauth_complete( request, backend ):
                 details[ 'email' ] = user.email
             social_user = UserSocialAuth.objects.get(user=user)        
             form = FMSNewRegistrationForm( initial=details )
-            return render_to_response("registration/registration_form.html",
-                                          {'form': form,
-                                           'social_connect': SocialProvider(backend.AUTH_BACKEND.name.capitalize()) },
-                                          context_instance=RequestContext(request))
-
-    # some big error.
-    url = getattr(settings, 'LOGIN_ERROR_URL', settings.LOGIN_URL)
+            return render_to_response(
+                "registration/registration_form.html",
+                {'form': form,
+                 'social_connect': SocialProvider(
+                     backend.AUTH_BACKEND.name.capitalize()
+                 )},
+                context_instance=RequestContext(request)) 
+            """  --------------       OVERRIDEN PART """
+    else:
+        msg = setting('LOGIN_ERROR_MESSAGE', None)
+        if msg:
+            messages.error(request, msg)
+        url = backend_setting(backend, 'LOGIN_ERROR_URL', sviews.LOGIN_ERROR_URL)
     return HttpResponseRedirect(url)
-
+ 
 
 def error(request):
     error_msg = request.session.pop(settings.SOCIAL_AUTH_ERROR_KEY, None)
