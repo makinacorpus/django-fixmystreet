@@ -108,7 +108,7 @@ INSTALLED_APPS = (
     'django_fixmystreet',
 )
 
-AUTH_PROFILE_MODULE = 'django_fixmystreet.models.UserProfile'
+AUTH_PROFILE_MODULE = 'django_fixmystreet.UserProfile'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
