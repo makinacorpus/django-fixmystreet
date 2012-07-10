@@ -2,17 +2,17 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.contrib import admin
-from mainapp.feeds import LatestReports, CityIdFeed, CitySlugFeed, WardIdFeed, WardSlugFeed,LatestUpdatesByReport
-from mainapp.models import City
+from django_fixmystreet.feeds import LatestReports, CityIdFeed, CitySlugFeed, WardIdFeed, WardSlugFeed,LatestUpdatesByReport
+from django_fixmystreet.models import City
 from social_auth.views import auth as social_auth
 from social_auth.views import disconnect as social_disconnect
 from registration.views import register
-from mainapp.forms import FMSNewRegistrationForm,FMSAuthenticationForm
-from mainapp.views.account import SUPPORTED_SOCIAL_PROVIDERS
+from django_fixmystreet.forms import FMSNewRegistrationForm,FMSAuthenticationForm
 from django.contrib.auth import views as auth_views
-from mainapp.views.mobile import open311v2 
-import mainapp.views.cities as cities
+from django_fixmystreet.views.mobile import open311v2 
+import django_fixmystreet.views.cities as cities
 
+from django_fixmystreet.views.account import SOCIAL_SUPPORTED_PROVIDERS
 
 SSL_ON = not settings.DEBUG
     
@@ -41,7 +41,7 @@ urlpatterns += patterns('',
     (r'^feeds/reports.rss$', LatestReports()),
 )
 
-urlpatterns += patterns('mainapp.views.main',
+urlpatterns += patterns('django_fixmystreet.views.main',
     (r'^$', 'home', {}, 'home_url_name'),
     (r'^search', 'search_address'),
     (r'about/$', 'about',{}, 'about_url_name'),
@@ -52,11 +52,11 @@ urlpatterns += patterns('mainapp.views.main',
 )
 
 
-urlpatterns += patterns('mainapp.views.promotion',
+urlpatterns += patterns('django_fixmystreet.views.promotion',
     (r'^promotions/(\w+)$', 'show'),
 )
 
-urlpatterns += patterns('mainapp.views.wards',
+urlpatterns += patterns('django_fixmystreet.views.wards',
     (r'^wards/(\d+)', 'show_by_id'), # support old url format       
     (r'^cities/(\S+)/wards/(\S+)/', 'show_by_slug'),           
     (r'^cities/(\d+)/wards/(\d+)', 'show_by_number'),           
@@ -68,36 +68,36 @@ urlpatterns += patterns('',
     (r'^cities/$', cities.index, {}, 'cities_url_name'),
 )
 
-urlpatterns += patterns( 'mainapp.views.reports.updates',
+urlpatterns += patterns( 'django_fixmystreet.views.reports.updates',
     (r'^reports/updates/confirm/(\S+)', 'confirm'), 
     (r'^reports/updates/create/', 'create'), 
     (r'^reports/(\d+)/updates/', 'new'),
 )
 
 
-urlpatterns += patterns( 'mainapp.views.reports.subscribers',
+urlpatterns += patterns( 'django_fixmystreet.views.reports.subscribers',
     (r'^reports/subscribers/confirm/(\S+)', 'confirm'), 
     (r'^reports/subscribers/unsubscribe/(\S+)', 'unsubscribe'),
     (r'^reports/subscribers/create/', 'create'),
     (r'^reports/(\d+)/subscribers', 'new'),
 )
 
-urlpatterns += patterns( 'mainapp.views.reports.flags',
+urlpatterns += patterns( 'django_fixmystreet.views.reports.flags',
     (r'^reports/(\d+)/flags/thanks', 'thanks'),
     (r'^reports/(\d+)/flags', 'new'),
 )
 
-urlpatterns += patterns('mainapp.views.reports.main',
+urlpatterns += patterns('django_fixmystreet.views.reports.main',
     (r'^reports/(\d+)$', 'show'),       
     (r'^reports/', 'new'),
 )
 
-urlpatterns += patterns('mainapp.views.contact',
+urlpatterns += patterns('django_fixmystreet.views.contact',
     (r'^contact/thanks', 'thanks'),
     (r'^contact', 'new', {}, 'contact_url_name'),
 )
 
-urlpatterns += patterns('mainapp.views.ajax',
+urlpatterns += patterns('django_fixmystreet.views.ajax',
     (r'^ajax/categories/(\d+)', 'category_desc'),
 )
 
@@ -106,19 +106,19 @@ urlpatterns += patterns('',
  url('^accounts/register/$', register, {'SSL':SSL_ON , 
                                         'form_class': FMSNewRegistrationForm,
                                          'extra_context': 
-                                    { 'providers': SUPPORTED_SOCIAL_PROVIDERS } },name='registration_register'),
+                                    { 'providers': SOCIAL_SUPPORTED_PROVIDERS } },name='registration_register'),
  url('^accounts/login/$',  auth_views.login, {'SSL':SSL_ON, 
                                               'template_name':'registration/login.html',
                                               'authentication_form':FMSAuthenticationForm,
                                               'extra_context': 
-                                              { 'providers': SUPPORTED_SOCIAL_PROVIDERS, 'login_disabled': settings.LOGIN_DISABLED }}, name='auth_login'), 
+                                              { 'providers': SOCIAL_SUPPORTED_PROVIDERS, 'login_disabled': settings.LOGIN_DISABLED }}, name='auth_login'), 
  url(r'^accounts/logout/$',  auth_views.logout,
                            {'SSL':SSL_ON,
                             'next_page': '/'}, name='auth_logout' ),
  (r'^accounts/', include('registration.urls') )
 )
  
-urlpatterns += patterns('mainapp.views.account',
+urlpatterns += patterns('django_fixmystreet.views.account',
     url(r'^accounts/home/', 'home',{ 'SSL':SSL_ON },  name='account_home'),
     url(r'^accounts/edit/', 'edit', {'SSL':SSL_ON }, name='account_edit'),
     (r'^accounts/login/error/$', 'error'),

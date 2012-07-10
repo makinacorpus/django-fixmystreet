@@ -1,0 +1,53 @@
+[
+     {
+        "pk": 2, 
+        "model": "django_fixmystreet.city", 
+        "fields": {
+            "name": "TestCityWithoutEmail",
+            "province": 1,
+            "email": "",
+            "slug": "TestCityWithoutEmail"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_fixmystreet.city", 
+        "fields": {
+            "name": "TestCityWithEmail",
+            "province": 1,
+            "email": "311email@city.com",
+            "slug": "TestCityWithEmail"
+        }
+    }, 
+
+     {
+        "pk": 7, 
+        "model": "django_fixmystreet.councillor", 
+        "fields": {
+            "first_name": "Angus", 
+            "last_name": "Arthur-Doyle", 
+            "email": "councillor_email@testward1.com"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_fixmystreet.ward", 
+        "fields": {
+            "city": 2, 
+            "name": "WardInCityWithNo311Email", 
+            "councillor": 7, 
+            "number": 1
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "django_fixmystreet.ward", 
+        "fields": {
+            "city": 3, 
+            "name": "WardInCityWith311Email", 
+            "councillor": 7, 
+            "number": 1
+        }
+    }
+
+]

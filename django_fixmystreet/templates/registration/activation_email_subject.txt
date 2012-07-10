@@ -1,1 +1,1 @@
-Activate your FixMyStreet.ca account
+Activate your {{ site.name }} account

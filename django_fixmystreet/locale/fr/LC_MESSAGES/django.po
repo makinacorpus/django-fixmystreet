@@ -16,98 +16,98 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mainapp/emailrules.py:18 mainapp/emailrules.py:35 mainapp/emailrules.py:121
+#: django_fixmystreet/emailrules.py:18 django_fixmystreet/emailrules.py:35 django_fixmystreet/emailrules.py:121
 msgid "All reports"
 msgstr "Tous les rapports"
 
-#: mainapp/emailrules.py:24
+#: django_fixmystreet/emailrules.py:24
 msgid "the councillor's email address"
 msgstr "l'adresse courriel de l'échevin"
 
-#: mainapp/emailrules.py:41
+#: django_fixmystreet/emailrules.py:41
 msgid "the 311 email address for that neighborhood"
 msgstr "l'adresse courriel 311 pour ce quartier"
 
-#: mainapp/emailrules.py:54
+#: django_fixmystreet/emailrules.py:54
 #, python-format
 msgid "'%s' reports"
 msgstr "'%s' rapports"
 
-#: mainapp/emailrules.py:73
+#: django_fixmystreet/emailrules.py:73
 #, python-format
 msgid "non-'%s' reports"
 msgstr "non-'%s' rapports"
 
-#: mainapp/emailrules.py:92
+#: django_fixmystreet/emailrules.py:92
 #, python-format
 msgid "%s will be "
 msgstr "%s seront "
 
-#: mainapp/emailrules.py:94
+#: django_fixmystreet/emailrules.py:94
 msgid "sent to:"
 msgstr "envoyé à:"
 
-#: mainapp/emailrules.py:98
+#: django_fixmystreet/emailrules.py:98
 msgid " and "
 msgstr " et "
 
-#: mainapp/emailrules.py:101
+#: django_fixmystreet/emailrules.py:101
 msgid "cc'd to:"
 msgstr "cc'd à:"
 
-#: mainapp/forms.py:21 mainapp/models.py:340 mainapp/models.py:386
+#: django_fixmystreet/forms.py:21 django_fixmystreet/models.py:340 django_fixmystreet/models.py:386
 msgid "Name"
 msgstr "Nom"
 
-#: mainapp/forms.py:24 mainapp/forms.py:353 mainapp/models.py:385
+#: django_fixmystreet/forms.py:24 django_fixmystreet/forms.py:353 django_fixmystreet/models.py:385
 msgid "Email"
 msgstr "Courriel"
 
-#: mainapp/forms.py:26
+#: django_fixmystreet/forms.py:26
 msgid "Message"
 msgstr "Message"
 
-#: mainapp/forms.py:62
+#: django_fixmystreet/forms.py:62
 msgid "Select a Category"
 msgstr "Choisissez une Catégorie"
 
-#: mainapp/forms.py:154 templates/reports/show.html:31
+#: django_fixmystreet/forms.py:154 templates/reports/show.html:31
 msgid "This problem has been fixed."
 msgstr "Ce problème a été résolu."
 
-#: mainapp/forms.py:267 mainapp/models.py:387 mainapp/models.py:723
+#: django_fixmystreet/forms.py:267 django_fixmystreet/models.py:387 django_fixmystreet/models.py:723
 msgid "Phone"
 msgstr "Téléphone"
 
-#: mainapp/forms.py:270
+#: django_fixmystreet/forms.py:270
 msgid "First Name"
 msgstr "Prénom"
 
-#: mainapp/forms.py:273
+#: django_fixmystreet/forms.py:273
 msgid "Last Name"
 msgstr "Nom"
 
-#: mainapp/forms.py:326
+#: django_fixmystreet/forms.py:326
 msgid "That email is already in use."
 msgstr "Cette adresse courriel est déja utilisée."
 
-#: mainapp/models.py:315
+#: django_fixmystreet/models.py:315
 msgid "Subject"
 msgstr "Sujet"
 
-#: mainapp/models.py:338
+#: django_fixmystreet/models.py:338
 msgid "* Photo"
 msgstr "* Photo"
 
-#: mainapp/models.py:339 mainapp/models.py:380
+#: django_fixmystreet/models.py:339 django_fixmystreet/models.py:380
 msgid "Details"
 msgstr "Détails"
 
-#: mainapp/models.py:341
+#: django_fixmystreet/models.py:341
 msgid "Location"
 msgstr "Location"
 
-#: mainapp/views/main.py:54
+#: django_fixmystreet/views/main.py:54
 msgid ""
 "Sorry, we don't yet have that area in our database. Please have your area "
 "councillor contact fixmystreet.ca."
@@ -115,11 +115,11 @@ msgstr ""
 "Désolé, nous n'avons pas cette région dans notre base de données. S'il vous "
 "plaît demander à votre échevin municipal qu'il contacte fixmystreet.ca."
 
-#: mainapp/views/reports/subscribers.py:19
+#: django_fixmystreet/views/reports/subscribers.py:19
 msgid "You are already subscribed to this report."
 msgstr "Vous vous avez déjà abonné aux mises à jour de ce rapport."
 
-#: mainapp/views/reports/subscribers.py:54
+#: django_fixmystreet/views/reports/subscribers.py:54
 msgid "You have unsubscribed from updates to:"
 msgstr "Vous vous avez désabonné des mises à jour de:"
 

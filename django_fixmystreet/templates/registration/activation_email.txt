@@ -1,6 +1,6 @@
 Hello {{user.first_name}},
 
-You are almost done! Your FixMyStreet.ca account has been 
+You are almost done! Your  {{ site.name }} account has been 
 created but your email address needs to be verified before 
 your account becomes fully active.
 
@@ -12,5 +12,5 @@ the link to your browser:
 Please keep this information for you records:
 Username: {{user.username}}
 
-Thank you for using FixMyStreet.ca.
-The FixMyStreet.ca Team 
+Thank you for using {{ site.name }}.
+The {{ site.name }} Team 

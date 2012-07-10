@@ -2,6 +2,8 @@
 import os
 import logging
 
+D = os.path.dirname
+
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 POSTGIS_TEMPLATE = 'template_postgis'
 
@@ -56,9 +58,13 @@ TEMPLATE_LOADERS = (
 
 # include request object in template to determine active page
 TEMPLATE_CONTEXT_PROCESSORS = (
-  'django.core.context_processors.request',
-  'django.contrib.auth.context_processors.auth',
-  'django.core.context_processors.csrf',
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.media',
+    'django.core.context_processors.i18n', 
+    'django.core.context_processors.csrf',
+    "django.contrib.messages.context_processors.messages",
+    'social_auth.context_processors.social_auth_by_name_backends',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,9 +73,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-#    'django.middleware.csrf.CsrfResponseMiddleware',
-    'mainapp.middleware.subdomains.SubdomainMiddleware',
-    'mainapp.middleware.SSLMiddleware.SSLRedirect',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django_fixmystreet.middleware.subdomains.SubdomainMiddleware',
+    'django_fixmystreet.middleware.SSLMiddleware.SSLRedirect',
 )
 
 
@@ -79,7 +85,7 @@ LANGUAGES = (
 )
 
 
-ROOT_URLCONF = 'fixmystreet.urls'
+ROOT_URLCONF = 'django_fixmystreet.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -99,33 +105,40 @@ INSTALLED_APPS = (
     'google_analytics',
     'transmeta',
     'social_auth',
-    'mainapp',
+    'django_fixmystreet',
 )
 
-AUTH_PROFILE_MODULE = 'mainapp.UserProfile'
+AUTH_PROFILE_MODULE = 'django_fixmystreet.models.UserProfile'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
     'social_auth.backends.facebook.FacebookBackend',
-#    'social_auth.backends.google.GoogleOAuthBackend',
-#    'social_auth.backends.google.GoogleOAuth2Backend',
-#    'social_auth.backends.google.GoogleBackend',
-#    'social_auth.backends.yahoo.YahooBackend',
-#    'social_auth.backends.OpenIDBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.yahoo.YahooBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'social_auth.backends.contrib.orkut.OrkutBackend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.OpenIDBackend',
     'django.contrib.auth.backends.ModelBackend',
-#    'mainapp.tests.testsocial_auth.dummy_socialauth.DummyBackend',
+#    'django_fixmystreet.googlebackend.GoogleProfileBackend',
 )
 
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY =True
-SOCIAL_AUTH_USER_MODEL = 'mainapp.FMSUser'
-SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 ACCOUNT_ACTIVATION_DAYS = 14
-SOCIAL_AUTH_EXTRA_DATA = False
-SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
-LOGIN_ERROR_URL = '/accounts/login/error/'
-SOCIAL_AUTH_ERROR_KEY = 'socialauth_error'
-LOGIN_REDIRECT_URL = '/accounts/home/'
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY =True
 LOGIN_DISABLED = False
+LOGIN_ERROR_URL = '/accounts/login/error/'
+LOGIN_REDIRECT_URL = '/accounts/home/'
+REGISTRATION_BACKEND = 'django_fixmystreet.registration_backend.Backend'
+SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
+SOCIAL_AUTH_ERROR_KEY = 'socialauth_error'
+SOCIAL_AUTH_EXTRA_DATA = False
+SOCIAL_AUTH_USER_MODEL = 'django_fixmystreet.FMSUser'
+SOCIAL_SUPPORTED_PROVIDERS = ['Google', 'Facebook', 'Twitter']
 
 #################################################################################
 # These variables Should be defined in the local settings file
@@ -182,8 +195,20 @@ except ImportError:
 if DEBUG and globals().has_key('TESTVIEW'):
     INSTALLED_APPS += ('django_testview',)
 
-
 if DEBUG:
     SOCIAL_AUTH_IMPORT_BACKENDS = (
-                                   'mainapp.tests.testsocial_auth',
-                                   )
+        'django_fixmystreet.tests.testsocial_auth',
+    )
+
+STATICFILES_DIRS = (
+    ("media", MEDIA_ROOT),
+    ("admin_media", ADMIN_MEDIA_PREFIX),
+) 
+
+minitage = D(D(D(D(D(D(os.path.abspath(__file__)))))))
+if os.path.exists(os.path.join(minitage, 'etc', 'minimerge.cfg')):
+    PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+    LOCAL_DEV = True
+    GDAL_LIBRARY_PATH = os.path.join(minitage, 'dependencies', 'gdal-1'  , 'parts', 'part', 'lib', 'libgdal.so')
+    GEOS_LIBRARY_PATH = os.path.join(minitage, 'dependencies', 'geos-3.2', 'parts', 'part', 'lib', 'libgeos_c.so')
+ 

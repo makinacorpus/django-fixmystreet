@@ -35,7 +35,7 @@
 	<ul>
 		{% for social in providers %}
 			<li>
-			<a rel="nofollow" href="{% url begin social.key %}">
+			<a rel="nofollow" href="{% url socialauth_begin social.key %}">
 			<span class='social-logo-show' txt="{{social.name}}" style="background-position: 0pt {{social.logo_offset}}px;"/>
 			</a>
 			</li>
@@ -45,4 +45,3 @@
 </div>
 {% endif %}
 {% endblock %}
-
