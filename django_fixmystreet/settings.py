@@ -221,4 +221,3 @@ if os.path.exists(os.path.join(minitage, 'etc', 'minimerge.cfg')):
     LOCAL_DEV = True
     GDAL_LIBRARY_PATH = os.path.join(minitage, 'dependencies', 'gdal-1'  , 'parts', 'part', 'lib', 'libgdal.so')
     GEOS_LIBRARY_PATH = os.path.join(minitage, 'dependencies', 'geos-3.2', 'parts', 'part', 'lib', 'libgeos_c.so')
- 
