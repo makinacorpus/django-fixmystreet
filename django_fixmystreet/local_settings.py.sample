@@ -1,0 +1,49 @@
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'HOST':     '127.0.0.1',
+        'PORT':     30007,
+        'NAME':     'fixmystreet',
+        'USER':     'fixmystreet',
+        'PASSWORD': 'fixmystreet'
+    }
+}
+
+# email settings
+
+#EMAIL_USE_TLS =
+#EMAIL_HOST_USER =
+#EMAIL_HOST_PASSWORD =
+EMAIL_HOST ='localhost'
+EMAIL_PORT = 25
+DEFAULT_FROM_EMAIL = EMAIL_FROM_USER = 'testeur@***-***.com'
+SITE_URL =  'http://localhost:30004'
+SECRET_KEY='****************************************************************************?'
+ADMIN_EMAIL = '***@gmail.com'
+ADMINS = 'kiorky'
+
+# Authentication settings
+
+TWITTER_CONSUMER_KEY='***'
+TWITTER_CONSUMER_SECRET='***'
+FACEBOOK_APP_ID              = '***'
+FACEBOOK_API_SECRET          = '***'
+GOOGLE_OAUTH2_CLIENT_ID     = '***.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = '***'
+
+SITE_ID = 3
+
+# Geolocalisation settings, Use either
+# - google : googlemaps 
+#       GMAP_KEY : google map api key
+# - geoserver :  a specific GEOSERVER 
+#       GEOSERVER : GEOSERVER backend url
+#       SERVICE_GIS : SERVICE_GIS backend url
+
+GIS_BACKEND = 'google'
+GMAP_KEY='***'
+
+# development / production settings
+LOCAL_DEV = TEMPLATE_DEBUG = DEBUG = True
+SSL_ON = not DEBUG
+
