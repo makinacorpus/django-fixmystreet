@@ -1,7 +1,8 @@
 from django.conf import settings
+
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, REDIRECT_FIELD_NAME
-from django.contrib import messages
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.db import connection,transaction
@@ -178,8 +179,10 @@ def complete_process(request, backend, *args, **kwargs):
 
 def error(request):
     error_msg = request.session.pop(settings.SOCIAL_AUTH_ERROR_KEY, None)
-    return render_to_response('registration/error.html', {'social_error': error_msg},
-                              RequestContext(request))
+    return render_to_response(
+        'registration/error.html', 
+        {'messages': messages.get_messages(request) },
+        RequestContext(request))
 
 
    

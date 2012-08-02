@@ -98,6 +98,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.gis',
@@ -130,16 +131,17 @@ ACCOUNT_ACTIVATION_DAYS = 14
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY =True
 SOCIAL_AUTH_COMPLETE_URL_NAME     = 'socialauth_complete' 
 LOGIN_DISABLED = False
+#LOGIN_ERROR_URL = '/accounts/register'
 LOGIN_ERROR_URL = '/accounts/login/error/'
 LOGIN_REDIRECT_URL = '/accounts/home/'
 REGISTRATION_BACKEND = 'django_fixmystreet.registration_backend.Backend'
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
 SOCIAL_AUTH_ERROR_KEY = 'socialauth_error'
 SOCIAL_AUTH_USER_MODEL = 'django_fixmystreet.FMSUser'
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['username', 'fullname', 'last_name', 'email', 'first_name']
 SOCIAL_SUPPORTED_PROVIDERS = ['Google', 'Facebook', 'Twitter']
 SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
-# SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
     'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.misc.save_status_to_session',
     'social_auth.backends.pipeline.user.get_username',
@@ -148,6 +150,7 @@ SOCIAL_AUTH_PIPELINE = (
 # SOCIAL_AUTH_EXTRA_DATA = False
 #    'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.misc.save_status_to_session',
+    'social_auth.backends.pipeline.user.update_user_details',
 )
 
 #################################################################################

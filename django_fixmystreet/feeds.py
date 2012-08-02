@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from django.contrib.syndication.feeds import FeedDoesNotExist
+from django.contrib.syndication.views import FeedDoesNotExist
 from django_fixmystreet.models import Report, ReportUpdate, City, Ward
 from django.shortcuts import get_object_or_404
 

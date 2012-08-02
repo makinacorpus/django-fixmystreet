@@ -139,6 +139,7 @@ urlpatterns += patterns('django_fixmystreet.views.ajax',
 
 urlpatterns += patterns('',
     (r'^open311/v2/', open311v2.xml.urls ),
+    (r'^open311/v2/', open311v2.json.urls ),
 )
 
 if settings.DEBUG and 'TESTVIEW' in settings.__members__:

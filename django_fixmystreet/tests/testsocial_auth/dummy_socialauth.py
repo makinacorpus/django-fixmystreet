@@ -26,6 +26,10 @@ class DummyBackend(SocialAuthBackend):
 
 class DummyAuth(BaseAuth):
     AUTH_BACKEND = DummyBackend
+    @classmethod
+    def enabled(cls):
+        """Return backend enabled status by checking basic settings"""
+        return True
 
         
     def auth_complete(self, *args, **kwargs):
@@ -38,11 +42,12 @@ class DummyAuth(BaseAuth):
         
         if self.data.get('uid',None):
             response['id'] = self.data.get('uid')
-            
-        kwargs.update({'response': response, DummyBackend.name: True})
-        return authenticate(*args, **kwargs)
-
-
+        kwargs.update({
+            'auth': self,
+            'response': response,
+            self.AUTH_BACKEND.name: True
+        })
+        return authenticate(*args, **kwargs) 
 
 
 # Backend definition

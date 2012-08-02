@@ -251,6 +251,7 @@ class TestRegistration(TestCase):
 
     def setUp(self):
         self.curr_auth = settings.AUTHENTICATION_BACKENDS
+        settings.SITE_ID = 1
         settings.AUTHENTICATION_BACKENDS += ('django_fixmystreet.tests.testsocial_auth.dummy_socialauth.DummyBackend',)
 
     def tearDown(self):
@@ -352,7 +353,7 @@ class TestRegistration(TestCase):
         
     def test_normal_register_after_social_auth(self):
         c = Client()
-        self._do_social_auth(c,SOCIAL_COMPLETE_URL_W_EMAIL)
+        self._do_social_auth(c, SOCIAL_COMPLETE_URL_W_EMAIL)
         self._register(c)
 
         # activate the user.

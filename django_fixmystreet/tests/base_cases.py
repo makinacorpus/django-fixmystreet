@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.core import mail
 from django_fixmystreet.models import Report,ReportUpdate,ReportSubscriber,City, \
     ReportCategory, ReportCategorySet, ReportCategoryClass
-import settings
+from django_fixmystreet import settings
 import re
 
 

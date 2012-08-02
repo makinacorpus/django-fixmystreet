@@ -164,9 +164,8 @@ class Open311v2Api(object):
         urlpatterns = patterns('',
             url(r'^requests.%s$' % ( self.content_type ), self.reports,  {'SSL': ['POST']} ),
             url(r'^services.%s$' % ( self.content_type ), self.services ),
-            url(r'^requests/(\d+).%s$' % ( self.content_type ),
-                self.report),
-            )
+            url(r'^requests/(\d+).%s$' % ( self.content_type ), self.report),
+        )
         return urlpatterns
     
     @property
@@ -174,3 +173,4 @@ class Open311v2Api(object):
         return self.get_urls(), 'open311v2', 'open311v2'
     
 xml = Open311v2Api('xml')
+json = Open311v2Api('json')
