@@ -1,5 +1,5 @@
-<errors>{% for key,value in errors.items %}
+<errors>{% for e in errors.errors %}
 	<error>
-		<description>{{key}}:{{value|safe}}</description>
+    <description>{{e.code|safe}}:{{e.description|safe}}</description>
 	</error>
 {% endfor %}</errors>

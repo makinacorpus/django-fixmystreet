@@ -1,8 +1,8 @@
-<service_requests>
+<?xml version="1.0" ?><service_requests>
 	<request>
 		<service_request_id>2</service_request_id>
-		<status>open</status>
-        <title>Unfixed 2</title>
+    <status>open</status>
+    <title>Unfixed 2</title>
 		<service_code>1</service_code>
 		<service_name>Parks: Broken or Damaged Equipment/Play Structures</service_name>
 		<description>Here's a description with a lot of 'escapes' in it.

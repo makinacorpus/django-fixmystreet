@@ -1,12 +1,12 @@
 <services>{% for service in services %}
     <service>
-        <service_code>{{service.id}}</service_code>
-        <service_name>{{service.name}}</service_name>
-        <description>{{service.hint}}</description>
-        <metadata>false</metadata>
-        <type>realtime</type>
-        <keywords></keywords>
-        <group>{{service.category_class.name}}</group>
+        <service_code>{{service.service_code}}</service_code>
+        <service_name>{{service.service_name}}</service_name>
+        <description>{{service.description}}</description>
+        <metadata>{{service.metadata}}</metadata>
+        <type>{{service.type}}</type>
+        <keywords>{{service.keywords}}</keywords>
+        <group>{{service.group}}</group>
     </service>{% endfor %}
 </services>
-    
+

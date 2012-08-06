@@ -1,11 +1,11 @@
-<services>
+<?xml version="1.0" ?><services>
     <service>
         <service_code>7</service_code>
         <service_name>Graffiti  on Utility Boxes/Transformers/Mailboxes, etc..</service_name>
         <description>Please note as much information regarding the location and type of graffiti as you can. If it is found on a utility box, what colour is the box? (green, brown, red, etc...), does it indicate the company that owns it? (Rogers, Bell, Canada Post, Hydro), and which side of the street is it on.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Grafitti</group>
     </service>
     <service>
@@ -14,7 +14,7 @@
         <description>Please note as much information regarding the location and type of graffiti as you can. For example, if it is found on a utility box, what colour is the box? (green, brown, red, etc...), does it indicate the company that owns it? (Rogers, Bell, Canada Post, Hydro), and which side of the street is it on.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Grafitti</group>
     </service>
     <service>
@@ -23,7 +23,7 @@
         <description>Please note as much information regarding the location and type of graffiti as you can. </description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Grafitti</group>
     </service>
     <service>
@@ -32,7 +32,7 @@
         <description>Please provide the location within the park where the problem is located (e.g. near the play structure; along the pathway that runs from the south end of the park to the neighbouring school; beside the water fountain near the east parking lot). Please provide the name or address of the park if possible.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Parks</group>
     </service>
     <service>
@@ -41,7 +41,7 @@
         <description>Please provide the location within the park where the problem is located (e.g. near the play structure; along the pathway that runs from the south end of the park to the neighbouring school; beside the water fountain near the east parking lot). Please provide the name or address of the park if possible.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Parks</group>
     </service>
     <service>
@@ -50,7 +50,7 @@
         <description>Please provide the location within the park where the problem is located (e.g. near the play structure; along the pathway that runs from the south end of the park to the neighbouring school; beside the water fountain near the east parking lot). Please provide the name or address of the park if possible.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Parks</group>
     </service>
     <service>
@@ -59,7 +59,7 @@
         <description>Please provide the location within the park where the problem is located (e.g. near the play structure; along the pathway that runs from the south end of the park to the neighbouring school; beside the water fountain near the east parking lot). Please provide the name or address of the park if possible.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Parks</group>
     </service>
     <service>
@@ -68,7 +68,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -77,7 +77,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -86,7 +86,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road). Indicating the shape of the catch basin or manhole cover will be very helpful.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -95,7 +95,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -104,7 +104,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road). </description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -113,7 +113,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -122,7 +122,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -131,7 +131,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road). </description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -140,7 +140,7 @@
         <description>Please be as detailed as possible in describing the location of the problem. For example, the 3rd catch basin along Laurier Avenue W, east of Elgin Street; the curb in front of 110 Laurier Ave W on the north side of the road; bus shelter 1234 on Innes Road).</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Roads/Sidewalks/Pathways</group>
     </service>
     <service>
@@ -149,7 +149,7 @@
         <description>Please try to be as detailed as possible in describing the location of the problem. For example, &quot;the 4th street light along Trail Side Circle, east of Valin Street&quot;.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Traffic Signals</group>
     </service>
     <service>
@@ -158,7 +158,7 @@
         <description>Please try to be as detailed as possible in describing the location of the problem. For example, &quot;the yellow sign with black bars across it; the solid yellow line on the pavement&quot;.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Traffic Signals</group>
     </service>
     <service>
@@ -167,7 +167,7 @@
         <description>Please try to be as detailed as possible in describing the location of the problem.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Traffic Signals</group>
     </service>
     <service>
@@ -176,7 +176,7 @@
         <description>If possible, please specify whether the tree causing the problem is on private property or city property.</description>
         <metadata>false</metadata>
         <type>realtime</type>
-        <keywords></keywords>
+        <keywords/>
         <group>Trees</group>
     </service>
 </services>

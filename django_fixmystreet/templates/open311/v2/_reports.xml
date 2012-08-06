@@ -1,15 +1,15 @@
-<service_requests>{% for report in reports %}
+<service_requests>{% for  report in reports %}
 	<request>
-		<service_request_id>{{report.id}}</service_request_id>
-		<status>{% if report.is_fixed %}closed{% else %}open{% endif %}</status>
-        <title>{{report.title|safe}}</title>
-		<service_code>{{report.category.id}}</service_code>
-		<service_name>{{report.category.category_class.name}}: {{report.category.name}}</service_name>
-		<description>{{report.desc|safe}}</description>
-		<requested_datetime>{{report.created_at|date:"c"}}</requested_datetime>
-		<updated_datetime>{{report.updated_at|date:"c"}}</updated_datetime>
-		<lon>{{report.point.x}}</lon>
-		<lat>{{report.point.y}}</lat>
-		<address>{{report.ward}}</address>
+		<service_request_id>{{report.service_request_id}}</service_request_id>
+    <status>{{report.status}}</status>
+    <title>{{report.title|safe}}</title>
+		<service_code>{{report.service_code}}</service_code>
+		<service_name>{{report.service_name}}</service_name>
+		<description>{{report.description|safe}}</description>
+		<requested_datetime>{{report.requested_datetime|date:"c"}}</requested_datetime>
+		<updated_datetime>{{report.updated_datetime|date:"c"}}</updated_datetime>
+		<lon>{{report.lon}}</lon>
+		<lat>{{report.lat}}</lat>
+		<address>{{report.address}}</address>
 	</request>{% endfor %}
 </service_requests>
