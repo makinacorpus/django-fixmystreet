@@ -149,8 +149,12 @@ if settings.DEBUG and 'TESTVIEW' in settings.__members__:
 
 #The following is used to serve up local media files like images
 if settings.LOCAL_DEV:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     baseurlregex = r'^media/(?P<path>.*)$'
     urlpatterns += patterns('',
         (baseurlregex, 'django.views.static.serve',
         {'document_root':  settings.MEDIA_ROOT}),
     )
+    urlpatterns += staticfiles_urlpatterns()
+
+
