@@ -1,6 +1,7 @@
 # Django settings for fixmystreet project.
 import os
 import logging
+import pkg_resources
 
 D = os.path.dirname
 
@@ -41,8 +42,17 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/admin_media/'
+ADMIN_MEDIA_PREFIX = '/static/admin_media/'
+ADMIN_STATIC_PATH = pkg_resources.resource_filename('django', 'contrib/admin/static/')
 
+STATIC_URL = '/static/'
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static_root')
+STATICFILES_DIRS = (
+    STATIC_PATH,
+    ("admin_media", ADMIN_STATIC_PATH),
+) 
+ 
 # ensure large uploaded files end up with correct permissions.  See
 # http://docs.djangoproject.com/en/dev/ref/settings/#file-upload-permissions
 
@@ -101,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
     'django.contrib.gis',
     'registration',
     'google_analytics',
@@ -212,11 +223,7 @@ if DEBUG:
     SOCIAL_AUTH_IMPORT_BACKENDS = (
         'django_fixmystreet.tests.testsocial_auth',
     )
-
-STATICFILES_DIRS = (
-    ("media", MEDIA_ROOT),
-    ("admin_media", ADMIN_MEDIA_PREFIX),
-) 
+    
 
 minitage = D(D(D(D(D(D(os.path.abspath(__file__)))))))
 if os.path.exists(os.path.join(minitage, 'etc', 'minimerge.cfg')):

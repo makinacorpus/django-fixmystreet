@@ -544,7 +544,7 @@ class ReportMarker(GMarker):
         else:
             color = 'red'
         icon_number = icon_number
-        img = "/media/images/marker/%s/marker%s.png" %( color, icon_number )
+        img = "/static/images/marker/%s/marker%s.png" %( color, icon_number )
         name = 'letteredIcon%s' %( icon_number )
         icon = GIcon(name,image=img,iconsize=(20,34))
         GMarker.__init__(self,geom=(report.point.x,report.point.y), title=report.title.replace('"',"'"), icon=icon)

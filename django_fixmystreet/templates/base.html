@@ -18,10 +18,10 @@
 	{% get_available_languages as LANGUAGES %}
 
 	<title>{% trans "FixMyStreet.ca" %} - {% block title %}{% trans "Home" %}{% endblock %}</title>
-	<link rel="stylesheet" type="text/css" href="/media/css/global.css" />
-	<link rel="stylesheet" type="text/css" href="/media/css/typography.css" />
-	<link rel="stylesheet" type="text/css" href="/media/css/layout-9.css" />
-	<link rel="stylesheet" type="text/css" href="/media/css/colors.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/typography.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/layout-9.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/colors.css" />
 	{% block css %}{% endblock %}
 	{% block script %}{% endblock %}
 	{% if google  %}
@@ -35,7 +35,7 @@
 			<div id="page_container" class="container_12">
 				<div id="header" class='grid_12'>
 					<div id="header_left">
-						<a href='/'><img src="/media/images/fms-canada-logo.gif"></a>
+						<a href='/'><img src="/static/images/fms-canada-logo.gif"></a>
 					</div>
 					<div id="header_right">
 						<div id='account-signin'>

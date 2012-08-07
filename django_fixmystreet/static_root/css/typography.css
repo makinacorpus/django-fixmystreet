@@ -1,0 +1,147 @@
+/*--------------------------------------------------------------------------------------------------------*/
+/*** Headings ***/
+
+#content_container h1 {
+	font-size: 6em;
+	letter-spacing: -0.03em;
+	font-weight: normal;
+	text-shadow:0px 1px 0px #000;
+}
+
+#intro_text h1 {
+	font-family: "League Gothic";
+	text-transform:uppercase;
+	font-size: 54px;
+	margin-bottom: 20px;
+	color:#dcdcdc !important;
+
+}
+#intro_text p {margin-top:-1.2em;padding-left:0.5em;}
+#intro_text span {color:#bebebe;font-family: "League Gothic";text-transform:uppercase;font-size:2em;	text-shadow:0px 1px 0px #000;}
+#intro_text span.alt {color:#be0d12;}
+
+#start_box p {font-size:1.2em;padding-bottom:0.6em;}
+#top_menu_links a { font-size: 1em; }
+
+#content_container h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+#content_container h3 {
+	font-size: 100%;
+	font-weight: normal;
+	margin: 2px 0 7px 0;
+	text-transform:uppercase;
+}
+
+#content_container h4 {
+	font-size: 110%;
+	font-weight: bold;
+	margin: 4px 0 7px 0;
+	text-align:left;
+}
+
+th {
+	font-weight: bold;
+	font-size: 80%;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*** Paragraphs ***/
+#content p {
+	line-height: 1.5em;
+	margin: 0 0  1em 0;
+}
+
+#content ul {
+	margin: 0 0  1em 0;
+}
+
+#content ul li {
+	line-height: 1.5em;
+	margin: 0 0  0 2em;
+	list-style-type: disc;
+}
+
+#content p:hover a {
+	text-decoration: underline;
+}
+
+.text-page p, .text-page ul {
+	margin-left: 2em;
+	margin-bottom: 1em;
+	text-align:left !important;
+}
+
+.text-page ul li { margin-left:4em; }
+
+#error-msg p { color: #222222; }
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*** Lists ***/
+
+ul.keyline_list li {
+	padding: 0.7em 0;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 1.2em;
+}
+
+ul.circle_list li {
+	background: url(../images/common/blt_green_circle.gif) no-repeat 0px 0.45em;
+	padding-left: 16px;
+	margin: 0.2em 0;
+	font-size: 1.2em;
+	line-height: 1.6em;
+}
+
+
+ol li {
+	list-style-type:decimal;
+        margin-left:2.5em;
+}
+
+ul.info_links li {
+		float: left;
+		padding: 0 1.3em;
+		border-left: 1px solid #c2c2c2;
+	}
+	ul.info_links li:first-child {
+		border-left: none;
+		padding: 0 1.3em 0 0;
+	}
+	ul.info_links li a {
+		font-size: 1.2em;
+		color: #8e8c8c;
+	}
+	ul.info_links li a:hover {
+		color: #505050;
+	}
+
+
+.status-text {
+color:silver;
+}
+
+
+
+.stat {color:#222;font-family: "League Gothic";text-transform:uppercase;font-size: 130%;line-height:1.0;padding-top:0.5em;}
+.stat .number {font-size:2em;}
+.stat .text {font-size:.7em;}
+.stat .qualifier {font-size:.5em;}
+
+blockquote {
+margin-left:3em;
+padding-left:1em;
+border:1px solid silver;
+border-left:5px solid silver;
+margin-bottom:0.8em;
+}
+#content_middle label {text-transform:uppercase;}
+#instructable {color:#b4b4b4;}
+#report-body p { margin-bottom: .5em;}
+#faq p {margin-bottom:1em;}
+#faq p, #faq ul {
+margin-left:2em;
+text-align:left !important;
+}
