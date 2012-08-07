@@ -51,8 +51,8 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, 'static_root')
 STATICFILES_DIRS = (
     STATIC_PATH,
     ("admin_media", ADMIN_STATIC_PATH),
-) 
- 
+)
+
 # ensure large uploaded files end up with correct permissions.  See
 # http://docs.djangoproject.com/en/dev/ref/settings/#file-upload-permissions
 
@@ -71,7 +71,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.media',
-    'django.core.context_processors.i18n', 
+    'django.core.context_processors.i18n',
     'django.core.context_processors.csrf',
     "django.contrib.messages.context_processors.messages",
     'social_auth.context_processors.social_auth_by_name_backends',
@@ -140,7 +140,7 @@ AUTHENTICATION_BACKENDS = (
 
 ACCOUNT_ACTIVATION_DAYS = 14
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY =True
-SOCIAL_AUTH_COMPLETE_URL_NAME     = 'socialauth_complete' 
+SOCIAL_AUTH_COMPLETE_URL_NAME     = 'socialauth_complete'
 LOGIN_DISABLED = False
 #LOGIN_ERROR_URL = '/accounts/register'
 LOGIN_ERROR_URL = '/accounts/login/error/'
@@ -213,7 +213,7 @@ except ImportError:
         sys.stderr.write( "local_settings.py not set; using default settings\n" )
 
 
-# Using django_testview from here (add 'TESTVIEW' to your local settings): 
+# Using django_testview from here (add 'TESTVIEW' to your local settings):
 # https://github.com/visiblegovernment/django_testview
 
 if DEBUG and globals().has_key('TESTVIEW'):
@@ -223,7 +223,9 @@ if DEBUG:
     SOCIAL_AUTH_IMPORT_BACKENDS = (
         'django_fixmystreet.tests.testsocial_auth',
     )
-    
+
+
+USE_X_FORWARDED_HOST = True
 
 minitage = D(D(D(D(D(D(os.path.abspath(__file__)))))))
 if os.path.exists(os.path.join(minitage, 'etc', 'minimerge.cfg')):
