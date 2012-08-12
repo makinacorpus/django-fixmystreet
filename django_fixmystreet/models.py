@@ -809,7 +809,9 @@ class CityAdmin(User):
 class DictToPoint():
     ''' Helper class '''
     def __init__(self, dict, exceptclass = Http404 ):
-        if exceptclass and not dict.has_key('lat') or not dict.has_key('lon'):
+        if (exceptclass and 
+            (not dict.has_key('lat') 
+             or not dict.has_key('lon'))):
             raise exceptclass
 
         self.lat = dict.get('lat',None)

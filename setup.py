@@ -18,7 +18,7 @@ setup(
                         'django-social-auth',
                         'django-registration',
                         'django'],
-    #extras_require = { 'test': ['django-debug-toolbar', 'django-jenkins'] }
+    extras_require = { 'test': ['django-debug-toolbar', 'django-jenkins', 'requests'] },
     entry_points={
         'console_scripts': [
                'fixmystreet_manage = django_fixmystreet.manage:main',

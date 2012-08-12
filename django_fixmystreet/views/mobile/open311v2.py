@@ -119,8 +119,7 @@ def errors_wrapped():
         errors = []
         derrors = {'errors': errors}
         try:
-            return func(self, request, *a, **kw)
-
+            return func(*a, **kw)
         except Http404, e:
             status = 404
             errors.append({
@@ -173,6 +172,7 @@ def errors_wrapped():
                 'code': 400,
                 'description': str(e)})
         except Exception, e:
+            raise
             status = 400
             errors.append(
                 {'code': 400,
@@ -194,15 +194,17 @@ def errors_wrapped():
 def webservice(section=None):
     def webservicew(func):
         def webservice_run(*a, **kw):
-            def wrappedp(*aargs, **akw):
-                return apikey_secured(section=section)(
-                    func)(*a, **kw)
-            p = errors_wrapped()(
-                wrappedp,
-                *a, **kw)
-            return p
+            def apikey_run():
+                func.csrf_exempt= True
+                return apikey_secured(section=section)(func)(*a, **kw)
+            def errors_run():
+                return errors_wrapped()(apikey_run, *a, **kw)
+            return errors_run()
+        webservice_run.csrf_exempt = True
         return webservice_run
     return webservicew
+
+
 class Open311ReportForm(forms.ModelForm):
     api_key = forms.fields.CharField()
     api_pass = forms.fields.CharField()
