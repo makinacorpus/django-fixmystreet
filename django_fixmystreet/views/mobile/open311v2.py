@@ -380,7 +380,7 @@ class Open311v2Api(object):
             logout(request)
 
             # mark user using a dummy backend
-            user.backend = 'dummy'
+            user.backend = 'django_fixmystreet.tests.testsocial_auth.dummy_socialauth.DummyBackend'
 
             # finally login the user with django manually
             login(request, user)
@@ -394,16 +394,16 @@ class Open311v2Api(object):
         d = request.GET.get('r','2')
         if request.method != "POST":
             reports = Report.objects.filter(is_confirmed=True)
+            pnt = None
             if (request.GET.has_key('lat')
                 and request.GET.has_key('lon')):
                 pnt = DictToPoint(request.GET).pnt()
-                d = request.GET.get('r', '2')
                 reports = reports.filter(
-                    point__distance_lte=(pnt,D(km=d)))
+                    point__distance_lte=(pnt, D(km=d)))
             if request.GET.has_key('service_request_id'):
                 reports = reports.filter(
                     id=int(
-                        request.GET['service_request_id'])) 
+                        request.GET['service_request_id']))
             if request.GET.has_key('jurisdiction_id'):
                 city = self._parse_jurisdiction(
                     request.GET['jurisdiction_id']
@@ -416,7 +416,33 @@ class Open311v2Api(object):
             if request.GET.has_key('end_date'):
                 reports = reports.filter(
                     created_at__lte=request.GET['end_date'])
-            reports = reports.order_by('-created_at')[:1000]
+            sort_order = request.GET.get('sort_order', 'desc')
+            order = request.GET.get('order', '')
+            orders = ['date', 'distance',]
+            limit = request.GET.get('limit', '1000')
+            if limit == 'off':
+                limit = None
+            else:
+                limit = int(limit)
+            order_by = 'created_at'
+            if sort_order == 'desc':
+                sort_order = '-'
+            else:
+                sort_order = ''
+            if not order in orders:
+                order = 'date'
+            if (order == 'distance') and (pnt is not None):
+                order_by = 'distance'
+            elif order == 'date':
+                order_by = 'created_at'
+            order_by = '%s%s' % (sort_order, order_by)
+            if 'distance' in order_by:
+                reports = reports.distance(
+                    pnt, field_name='point'
+                )
+            reports = reports.order_by(order_by)
+            if limit:
+                reports = reports[:limit]
             return self._render_reports(request, reports)
         else:
             user = self.login(request)
@@ -451,7 +477,7 @@ class Open311v2Api(object):
             ward = get_object_or_404( Ward, id = int(
                 request.GET['id']))
             if not ward in wards:
-                wards.append(ward) 
+                wards.append(ward)
         elif (request.GET.has_key('lat')
             and request.GET.has_key('lon')):
             ward = DictToPoint(request.GET).ward()
@@ -480,7 +506,7 @@ class Open311v2Api(object):
             data.append({
                 'id':w.id,
                 'name':w.name,
-                'city':{'id':w.city.id, 
+                'city':{'id':w.city.id,
                         'name': w.city.name},
                 'councillor':'%s %s <%s>' % (
                     w.councillor.first_name,
@@ -596,7 +622,7 @@ class Open311v2Api(object):
         urlpatterns = patterns(
             '',
              url(r'^jurisdictions.%s$' % (self.content_type),
-                self.jurisdictions,  {'SSL': ['POST']}), 
+                self.jurisdictions,  {'SSL': ['POST']}),
             url(r'^requests.%s$' % (self.content_type),
                 self.reports,  {'SSL': ['POST']}),
             url(r'^services.%s$' % (

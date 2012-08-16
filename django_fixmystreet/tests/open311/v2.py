@@ -138,13 +138,18 @@ class Open311v2(TestCase):
                 device_id=params['device_id'],
                 desc=params['description']
             ).count()
-            self.assertEquals(response.status_code, 200)
+            try:
+                self.assertEquals(response.status_code, 200)
+            except:
+                if debug:
+                    import pdb;pdb.set_trace()
+                raise 
             try:
                 self.assertEqual(counta-countb, 1,
                                  'no report created!')
             except:
                 if debug:
-                    import pdb;pdb.set_trace()  ## Breakpoint ##
+                    import pdb;pdb.set_trace()
                 raise
 
             try:
@@ -156,7 +161,7 @@ class Open311v2(TestCase):
                 )
             except:
                 if debug:
-                    import pdb;pdb.set_trace()  ## Breakpoint ##
+                    import pdb;pdb.set_trace()
                 raise
 
             if anon:
@@ -187,7 +192,7 @@ class Open311v2(TestCase):
                 self.assertEquals(response.status_code,
                               error_code)
             except:
-                import pdb;pdb.set_trace()  ## Breakpoint ##
+                import pdb;pdb.set_trace()
                 raise
 
             if data is not None:
@@ -567,7 +572,7 @@ class Open311v2JSON(Open311v2):
         url = (self._servicesUrl()
                + '&jurisdiction_id=oglo_on.fixmystreet.ca')
         self._test_get_services(url)
- 
+
 
     def get_reports(self, response):
         REF = [{
@@ -1023,8 +1028,144 @@ class Open311v2JSON(Open311v2):
         self.verify(data, REF)
 
 
+class Open311v2JSON3(Open311v2JSON):
+    base_class = True
+    fixtures = ['test_mobile.json',]
+
+    def setUp(self):
+        Open311v2JSON.setUp(self)
+        for r in Report.objects.all():
+            r.delete()
+
+    def test_a_order_by_limit(self):
+        params = LOGGEDIN_CREATE_PARAMS.copy()
+        ids = [1,2,3,4,5]
+        REF1 = params.copy()
+        REF2 = params.copy()
+        REF3 = params.copy()
+        REF4 = params.copy()
+        REF1['lat'] = '45.4227'
+        REF1['lon'] = '-75.6781'
+        REF3['lat'] = '45.4140'
+        REF3['lon'] = '-75.6829'
+        REF4['lat'] = '45.4057'
+        REF4['lon'] = '-75.6876'
+        REF2['lat'] = '45.3912'
+        REF2['lon'] = '-75.6948'
+        REFS = [REF1, REF2, REF3, REF4]
+        for p in REFS:
+            data = self._create_request(p, debug=True)
+        query = {'r': '2',
+                 'order': 'distance',
+                 'limit': '1',
+                 'lon': '-75.6824648380000014',
+                 'lat': '45.4301269580000024'} 
+        url = self._reportsUrl(query)
+        response = self.c.get(url)
+        data = js.loads(response.content)
+        query['sort_order'] = 'asc'
+        url = self._reportsUrl(query)
+        response = self.c.get(url) 
+        idata = js.loads(response.content)
+        self.assertEquals(
+            [a['service_request_id']
+             for a in data
+             if not a['service_request_id'] in ids],
+            [8]
+        )
+        self.assertEquals(
+            [a['service_request_id']
+             for a in idata
+             if not a['service_request_id'] in ids],
+            [6]
+        )
+
+    def test_order_by_radius(self):
+        params = LOGGEDIN_CREATE_PARAMS.copy()
+        ids = [1,2,3,4,5]
+        REF1 = params.copy()
+        REF2 = params.copy()
+        REF3 = params.copy()
+        REF4 = params.copy()
+        REF1['lat'] = '45.4227'
+        REF1['lon'] = '-75.6781'
+        REF3['lat'] = '45.4140'
+        REF3['lon'] = '-75.6829'
+        REF4['lat'] = '45.4057'
+        REF4['lon'] = '-75.6876'
+        REF2['lat'] = '45.3912'
+        REF2['lon'] = '-75.6948'
+        REFS = [REF1, REF2, REF3, REF4]
+        for p in REFS:
+            data = self._create_request(p, debug=True)
+        query = {'r': '2',
+                 'order': 'distance',
+                 'lon': '-75.6824648380000014',
+                 'lat': '45.4301269580000024'} 
+        url = self._reportsUrl(query)
+        response = self.c.get(url)
+        data = js.loads(response.content)
+        query['sort_order'] = 'asc'
+        url = self._reportsUrl(query)
+        response = self.c.get(url) 
+        idata = js.loads(response.content)
+        self.assertEquals(
+            [a['service_request_id']
+             for a in data
+             if not a['service_request_id'] in ids],
+            [8, 6]
+        )
+        aaa = [a['service_request_id'] for a in data 
+              if not a['service_request_id'] in ids]
+        aaa.reverse()
+        bbb = [a['service_request_id'] for a in idata
+               if not a['service_request_id'] in ids]
+        self.assertEquals(aaa, bbb)  
 
 
+    def test_order_by_distance(self):
+        params = LOGGEDIN_CREATE_PARAMS.copy()
+        REF1 = params.copy()
+        REF2 = params.copy()
+        REF3 = params.copy()
+        REF4 = params.copy()
+        REF1['lat'] = '45.4227'
+        REF1['lon'] = '-75.6781'
+        REF3['lat'] = '45.4140'
+        REF3['lon'] = '-75.6829'
+        REF4['lat'] = '45.4057'
+        REF4['lon'] = '-75.6876'
+        REF2['lat'] = '45.3912'
+        REF2['lon'] = '-75.6948'
+        REFS = [REF1, REF2, REF3, REF4]
+        for p in REFS:
+            data = self._create_request(p, debug=True)
+        query = {'r': '1000.123456',
+                 'order': 'distance',
+                 'lon': '-75.6824648380000014',
+                 'lat': '45.4301269580000024'} 
+        url = self._reportsUrl(query)
+        response = self.c.get(url)
+        data = js.loads(response.content)
+        query['sort_order'] = 'asc'
+        url = self._reportsUrl(query)
+        response = self.c.get(url) 
+        idata = js.loads(response.content)
+        self.assertEquals(
+            [a['service_request_id'] for a in data],
+            [7, 9, 8, 6, ]
+        )
+        self.assertEquals(
+            [a['service_request_id'] for a in idata],
+            [ 6, 8, 9, 7]
+        )
+        ids = [1,2,3,4,5]
+        aaa = [a['service_request_id'] for a in data 
+              if not a['service_request_id'] in ids]
+        aaa.reverse()
+        bbb = [a['service_request_id'] for a in idata
+               if not a['service_request_id'] in ids]
+        self.assertEquals(aaa, bbb)
 
 class Open311v2JSON2(Open311v2JSON):
     base_class = True
