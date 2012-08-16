@@ -1,4 +1,6 @@
+from StringIO import StringIO
 from pprint import pprint
+import urllib
 import re
 
 import datetime
@@ -213,7 +215,6 @@ class Open311ReportForm(forms.ModelForm):
     jurisdiction_id = forms.fields.CharField()
 
 class Open311ReportForm(ReportForm):
-
     service_code = forms.fields.CharField()
     description = forms.fields.CharField()
     first_name = forms.fields.CharField()
@@ -593,6 +594,15 @@ class Open311v2Api(object):
             address = ''
             if report.ward:
                 address = unicode(report.ward)
+            # download photos to mobile only < 3MB
+            photo, thumb = '', ''
+            if report.photo is not None:
+                photo = request.build_absolute_uri(
+                    report.photo.url
+                )
+                thumb = request.build_absolute_uri(
+                    report.photo.thumbnail.url()
+                )
             data.append(OrderedDict([
                 ('service_request_id', report.id),
                 ('title',  report.title),
@@ -608,6 +618,9 @@ class Open311v2Api(object):
                 ('lon',  report.point.x),
                 ('lat',  report.point.y),
                 ('address',  address),
+                ('photo',  address),
+                ('photo_thumb',  thumb),
+                ('photo_url',  photo),
             ]))
         if self.content_type in ['json']:
             data = dumps(data)

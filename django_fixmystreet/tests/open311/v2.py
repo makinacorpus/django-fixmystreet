@@ -452,7 +452,7 @@ class Open311v2(TestCase):
 
     @skipBaseClass
     def test_post_missing_desc(self):
-        self._test_post_missing('description', debug=True)
+        self._test_post_missing('description')
 
     @skipBaseClass
     def test_post_missing_lat(self):
@@ -1004,7 +1004,7 @@ class Open311v2JSON(Open311v2):
     @skipBaseClass
     def test_post_request(self):
         params = LOGGEDIN_CREATE_PARAMS.copy()
-        data = self._create_request(params, debug=True)
+        data = self._create_request(params)
         REF = {u'status': u'open',
              u'description': u'The description',
              u'service_code': 5,
@@ -1027,6 +1027,40 @@ class Open311v2JSON(Open311v2):
         self.assertEquals(report.is_confirmed, True)
         self.verify(data, REF)
 
+
+class Open311v2JSON4(Open311v2JSON):
+    base_class = True
+    fixtures = ['test_mobile.json',]
+
+    def setUp(self):
+        Open311v2JSON.setUp(self)
+        for r in Report.objects.all():
+            r.delete()
+
+    def test_a_uploaddownloadphoto(self):
+        params = LOGGEDIN_CREATE_PARAMS.copy()
+        f = open(PATH+'/kiorky.png')
+        data = open(PATH+'/kiorky.png').read()
+        data = data.encode('base64')
+        data = urllib.quote(data)
+        params['photo'] = f
+        data = self._create_request(params, debug=True)
+        query = {
+            'service_request_id': (
+                data[0]['service_request_id']
+            )
+        }
+        url = self._reportsUrl(query)
+        response = self.c.get(url)
+        data = js.loads(response.content)
+        self.assertEquals(
+            data[0]['photo_thumb'],
+            u'http://testserver/media/photos/photo_6.thumbnail.png'
+        )
+        self.assertEquals(
+            data[0]['photo_url'],
+            u'http://testserver/media/photos/photo_6.png'
+        )
 
 class Open311v2JSON3(Open311v2JSON):
     base_class = True
@@ -1054,7 +1088,7 @@ class Open311v2JSON3(Open311v2JSON):
         REF2['lon'] = '-75.6948'
         REFS = [REF1, REF2, REF3, REF4]
         for p in REFS:
-            data = self._create_request(p, debug=True)
+            data = self._create_request(p)
         query = {'r': '2',
                  'order': 'distance',
                  'limit': '1',
@@ -1097,7 +1131,7 @@ class Open311v2JSON3(Open311v2JSON):
         REF2['lon'] = '-75.6948'
         REFS = [REF1, REF2, REF3, REF4]
         for p in REFS:
-            data = self._create_request(p, debug=True)
+            data = self._create_request(p)
         query = {'r': '2',
                  'order': 'distance',
                  'lon': '-75.6824648380000014',
@@ -1139,7 +1173,7 @@ class Open311v2JSON3(Open311v2JSON):
         REF2['lon'] = '-75.6948'
         REFS = [REF1, REF2, REF3, REF4]
         for p in REFS:
-            data = self._create_request(p, debug=True)
+            data = self._create_request(p)
         query = {'r': '1000.123456',
                  'order': 'distance',
                  'lon': '-75.6824648380000014',
