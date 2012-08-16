@@ -597,12 +597,16 @@ class Open311v2Api(object):
             # download photos to mobile only < 3MB
             photo, thumb = '', ''
             if report.photo is not None:
-                photo = request.build_absolute_uri(
-                    report.photo.url
-                )
-                thumb = request.build_absolute_uri(
-                    report.photo.thumbnail.url()
-                )
+                try:
+                    photo = request.build_absolute_uri(
+                        report.photo.url
+                    )
+                    thumb = request.build_absolute_uri(
+                        report.photo.thumbnail.url()
+                    )
+                except ValueError:
+                    # no thumb yet
+                    pass
             data.append(OrderedDict([
                 ('service_request_id', report.id),
                 ('title',  report.title),
