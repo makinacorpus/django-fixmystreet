@@ -229,7 +229,7 @@ msgstr "Accrocher un poster"
 
 #: templates/home.html:26
 msgid "report/view/discuss"
-msgstr "rapporter/voir/discuté"
+msgstr "rapporter/voir/discuter"
 
 #: templates/home.html:27
 msgid "graffiti."
@@ -237,15 +237,23 @@ msgstr "graffiti."
 
 #: templates/home.html:28
 msgid "potholes."
-msgstr "nid de poules."
+msgstr "nid de poule."
 
 #: templates/home.html:29
 msgid "excessive"
 msgstr "excessif"
 
+#: templates/home.html:30
+msgid "garbage."
+msgstr "détritus."
+
 #: templates/home.html:31
 msgid "street"
 msgstr "rue"
+
+#: templates/home.html:32
+msgid "lighting."
+msgstr "éclairage."
 
 #: templates/home.html:37
 msgid "Enter a nearby postal code, or street name and city:"

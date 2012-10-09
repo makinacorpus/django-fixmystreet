@@ -5,22 +5,22 @@
 	font-size: 6em;
 	letter-spacing: -0.03em;
 	font-weight: normal;
-	text-shadow:0px 1px 0px #000;
+/* 	text-shadow:0px 1px 0px #000; */
 }
 
 #intro_text h1 {
 	font-family: "League Gothic";
 	text-transform:uppercase;
-	font-size: 54px;
+	font-size: 50px;
 	margin-bottom: 20px;
-	color:#dcdcdc !important;
+	color:#fff !important;
 
 }
 #intro_text p {margin-top:-1.2em;padding-left:0.5em;}
-#intro_text span {color:#bebebe;font-family: "League Gothic";text-transform:uppercase;font-size:2em;	text-shadow:0px 1px 0px #000;}
-#intro_text span.alt {color:#be0d12;}
+#intro_text span {color:#2f5d1f;font-family: "League Gothic";text-transform:uppercase;font-size:1.5em;}
+#intro_text span.alt {color:#CC6600;}
 
-#start_box p {font-size:1.2em;padding-bottom:0.6em;}
+#start_box p {font-size:1.2em;padding-bottom:0.6em;color: #444}
 #top_menu_links a { font-size: 1em; }
 
 #content_container h2 {

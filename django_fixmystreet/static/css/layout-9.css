@@ -12,7 +12,7 @@ body {
 	margin: 0px auto;
 }
 
-#content_middle {padding-top:2em;padding-bottom:2em;margin-top:2em;color:#b4b4b4;}
+#content_middle {padding-top:0;padding-bottom:0;margin-top:0.5em;color:#2f5d1f;}
 
 #city_top_problems table td:first-child { padding-left: 5px; }
 
@@ -26,27 +26,27 @@ body {
 #header {
 	width: 100%;
 	height: 80px;
-	margin-top: 10px;
+	margin-top: 0px;
 }
 
 #header_left {
 	float: left;
 	width: 530px;
 	height: 60px;
-	padding-top:1.3em;
+	padding-top:0em;
 }
 
 #header_right {
 	float: right;
 	height: 60px;
-	width: 42%;
+	width: 44%;
 }
 
 #page_content_container {
-	min-height:400px;
+	min-height:350px;
 	width: 100%;
 	margin-top:1.2em;
-	background: url('/static/images/map-background.png') 275px 0 no-repeat;
+	background: url("/static/images/map-background.png") no-repeat scroll right bottom transparent;
 }
 
 #leftcol {
@@ -251,12 +251,12 @@ padding-top: 5px;
 
 #start_box {
 	text-align: left;
-	margin-top:4em;
+	margin-top:1em;
 	width: 70%;
 	float: left;
 }
 
-#supported_cities { width: 20%; float: right; text-align: left;}
+#supported_cities { width: 20%; float: right; text-align: left;margin-top: 20px; border-left: 1px dotted #2F5D1F; padding-left: 3px}
 #supported_cities ul { padding: 10px 0px; }
 #supported_cities ul li {
 	padding: 2px 10px;
@@ -335,12 +335,12 @@ height: 115px;
 .stat {
 	width: 155px;
 	color: #222;
-	height: 95px;
+	height: 105px;
 	margin: 0.6em;
 	float: left;
 	text-align: center;
 	vertical-align: middle;
-	background: url('/static/images/metrics-back.gif') 0 0 no-repeat;
+	background: url('/static/images/metrics-back.png') 0 0 no-repeat;
 }
 
 #city-top-problems {
@@ -355,12 +355,12 @@ height: 115px;
 
 #city-stat-group .stat {
 	margin: .4em 0.4em;
-	border: 2px dotted #b4b4b4;
-	height: 48px;
+	border: 2px dotted #42852c;
+	height: 58px;
 	font-family:Helvetica,"Lucida Sans","Trebuchet MS",Helvetica,Arial,sans-serif;
 	width: 100px;
-	color: #b4b4b4;
-	background: #222222;
+	color: #42852c;
+	background: #93d47e;
 }
 
 #city-stat-group .number {
@@ -373,7 +373,7 @@ height: 115px;
 
 
 a {
-text-decoration: underline;
+/* text-decoration: underline; */
 }
 
 div.block ul li {

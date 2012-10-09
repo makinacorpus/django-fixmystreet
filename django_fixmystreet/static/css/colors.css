@@ -38,15 +38,15 @@
 }
 
 td.section {
-     	background-color:#000000;
+     	background-color:#42852c;
 }
 
 .row-odd {
-	background: #222222;
+	background: #93d47e;
 }
 
 .row-even {
-	background: #434343;
+	background: #aadd99;
 }
 
 #photo_note {
@@ -79,9 +79,9 @@ td.section {
 }
 
 a {
-	color: #7E090C;
+	color: #CC6600;
 }
-p {color:#B4B4B4;}
+p {color:#444;}
 
 #content_third .fix-disclaimer p{color: #4c4c4c;}
 
@@ -98,11 +98,11 @@ color:#666666;
 }
 #content_container h3 {
 	color: #FFF;
-    text-shadow:0px 1px 0px #000;
+/*     text-shadow:0px 1px 0px #000; */
 }
 
 #content_middle a {
-	color: #fc3535;
+	color: #CC6600;
 }
 
 #more-actions a {
