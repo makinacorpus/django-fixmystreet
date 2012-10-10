@@ -20,7 +20,8 @@
 
 #report-subscribers {
    background: #93D47E; 
-   border: solid 2px #42852C;
+   border: solid 1px #42852C;
+   font-size: 12px;
 }
 .is_fixed p {
     color: #222222;
@@ -94,7 +95,7 @@ color:#666666;
 	color: #4a8797;
 }
 #content_container h2 {
-	color: #f3865a;
+	color: #42852C;
 }
 #content_container h3 {
 	color: #FFF;
