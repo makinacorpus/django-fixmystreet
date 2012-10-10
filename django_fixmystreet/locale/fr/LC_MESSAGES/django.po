@@ -602,15 +602,15 @@ msgstr "Nouveaux problèmes"
 
 #: templates/cities/_report_count_table.html:8
 msgid "Older Unresolved Problems"
-msgstr "Problèmes pas encore résolu"
+msgstr "Problèmes non résolus"
 
 #: templates/cities/_report_count_table.html:9
 msgid "Recently Fixed"
-msgstr "Résolu récemment"
+msgstr "Résolus récemment"
 
 #: templates/cities/_report_count_table.html:10
 msgid "Old Fixed"
-msgstr "Résolu"
+msgstr "Résolus"
 
 #: templates/cities/home.html:5
 msgid "Report, view, or discuss local problems in"
@@ -879,9 +879,6 @@ msgstr "Catégorie"
 
 #: templates/reports/show.html:55
 msgid "Location:"
-msgstr "Adresse:"
-
-msgid "LOCATION:"
 msgstr "Adresse:"
 
 #: templates/reports/show.html:57
