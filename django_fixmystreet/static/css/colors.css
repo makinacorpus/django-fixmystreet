@@ -19,8 +19,8 @@
 }
 
 #report-subscribers {
-   background: #222222; 
-   border: solid 2px #b4b4b4;
+   background: #93D47E; 
+   border: solid 2px #42852C;
 }
 .is_fixed p {
     color: #222222;
@@ -106,7 +106,7 @@ color:#666666;
 }
 
 #more-actions a {
-	color: #98b3cc;
+	color: #444;
 	font-weight: bold;
 }
 

@@ -919,7 +919,7 @@ msgstr "Fournir une mise à jour"
 #: templates/reports/show.html:99
 msgid "Please note that updates are not sent to city officials."
 msgstr ""
-"S'il vous plaît noter que les mises à jour ne sont pas envoyées à la Ville."
+"Notez que les mises à jour ne sont pas envoyées à la Ville."
 
 #: templates/reports/flags/new.html:4
 msgid "Flag an Offensive Report"
