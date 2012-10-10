@@ -22,7 +22,7 @@ msgstr "Tous les rapports"
 
 #: django_fixmystreet/emailrules.py:24
 msgid "the councillor's email address"
-msgstr "l'adresse courriel de l'échevin"
+msgstr "l'adresse courriel de l'élu"
 
 #: django_fixmystreet/emailrules.py:41
 msgid "the 311 email address for that neighborhood"
@@ -278,11 +278,11 @@ msgstr "Signalez un problème"
 #: templates/home.html:65
 msgid "Enter a nearby postal code, street name, or city"
 msgstr ""
-"Entrez un code postal, un nom de rue, une ville :"
+"Entrez un code postal, un nom de rue, une ville"
 
 #: templates/home.html:66
 msgid "Locate the problem on a map of the area"
-msgstr "Localisez le problème sur une carte de la région"
+msgstr "Localisez le problème sur la carte"
 
 #: templates/home.html:67
 msgid "Enter details of the problem"
@@ -671,14 +671,13 @@ msgstr ""
 "<p>\n"
 "\tMerci de <strong>NE PAS</strong> signaler de problèmes par "
 "l'entremise de ce formulaire.\n"
-"\tLes messages vont à l'équipe de Terralego, pas aux Échevins "
-"Municipaux.\n"
+"\tLes messages sont à destination de l'équipe Terralego, pas aux élus "
+"municipaux.\n"
 "</p>\n"
 "<p>\n"
 "\tPour signaler un problème, merci de suivre les instructions <a href="
 "\"/\">que vous trouverez ici</a>.\n"
 "</p>\n"
-"<p>Nous voulons obtenir vos commentaires sur ce site:</p> \n"
 
 #: templates/contact/new.html:25
 msgid "Send"
@@ -1046,7 +1045,7 @@ msgstr ""
 
 #: templates/wards/_info_box.html:7
 msgid "Councillor"
-msgstr "Échevin"
+msgstr "Elus"
 
 #: templates/wards/_info_box.html:9
 msgid "Ward"
