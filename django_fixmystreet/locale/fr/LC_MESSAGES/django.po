@@ -116,11 +116,11 @@ msgstr ""
 
 #: django_fixmystreet/views/reports/subscribers.py:19
 msgid "You are already subscribed to this report."
-msgstr "Vous vous avez déjà abonné aux mises à jour de ce rapport."
+msgstr "Vous vous êtes déjà abonnés aux mises à jour de ce rapport."
 
 #: django_fixmystreet/views/reports/subscribers.py:54
 msgid "You have unsubscribed from updates to:"
-msgstr "Vous vous avez désabonné des mises à jour de:"
+msgstr "Vous vous êtes désabonnés des mises à jour de:"
 
 #: templates/about.html:4 templates/about.html.py:9 templates/base.html:77
 #: templates/faq/show.html:3 templates/faq/show.html.py:7
@@ -133,7 +133,7 @@ msgstr "Crédits"
 
 #: templates/about.html:17
 msgid "Thanks to:"
-msgstr "Remerciements À:"
+msgstr "Remerciements à:"
 
 #: templates/about.html:19
 msgid "for the original concept."
@@ -191,12 +191,12 @@ msgstr "Mon Compte"
 
 #: templates/base.html:48
 msgid "Sign Out"
-msgstr "Deconnectez"
+msgstr "Deconnectez vous"
 
 #: templates/base.html:50 templates/registration/login.html:3
 #: templates/registration/login.html:6
 msgid "Sign In"
-msgstr "Connectez-vous"
+msgstr "Connectez vous"
 
 #: templates/base.html:51
 msgid "Create Account"
@@ -208,19 +208,19 @@ msgstr "Créer un Rapport"
 
 #: templates/base.html:75
 msgid "View Reports"
-msgstr "Voir Rapports"
+msgstr "Voir rapports"
 
 #: templates/base.html:76 templates/account/home.html:12
 msgid "My Reports"
-msgstr "Mes Rapports"
+msgstr "Mes rapports"
 
 #: templates/base.html:107 templates/privacy.html:4
 msgid "Privacy"
-msgstr "Politique de Confidentialité"
+msgstr "Politique de confidentialité"
 
 #: templates/base.html:108 templates/contact/new.html:8
 msgid "Contact Us"
-msgstr "Contactez Nous"
+msgstr "Contactez nous"
 
 #: templates/base.html:109
 msgid "Hang a Poster"
@@ -257,7 +257,7 @@ msgstr "éclairage."
 #: templates/home.html:37
 msgid "Enter a nearby postal code, or street name and city:"
 msgstr ""
-"Entrez un code postal à proximité, ou le nom de la rue et de la région:"
+"Entrez un code postal, un nom de rue, une ville :"
 
 #: templates/home.html:41
 msgid "Search"
@@ -265,20 +265,20 @@ msgstr "Rechercher"
 
 #: templates/home.html:45
 msgid "Supported Cities"
-msgstr "Villes Incluses"
+msgstr "Villes incluses"
 
 #: templates/home.html:50
 msgid "Add Your City"
-msgstr "Ajoutez Votre Ville"
+msgstr "Ajoutez votre ville"
 
 #: templates/home.html:63
 msgid "How to Report a Problem"
-msgstr "Signalez un Problème"
+msgstr "Signalez un problème"
 
 #: templates/home.html:65
 msgid "Enter a nearby postal code, street name, or city"
 msgstr ""
-"Entrez un code postal à proximité, le nom de la rue ou le nom de la ville:"
+"Entrez un code postal, un nom de rue, une ville :"
 
 #: templates/home.html:66
 msgid "Locate the problem on a map of the area"
@@ -298,15 +298,15 @@ msgstr "Rapports "
 
 #: templates/home.html:77 templates/home.html.py:82 templates/home.html:87
 msgid "In the Last Year"
-msgstr "Dans la Dernière Année"
+msgstr "Dans la dernière année"
 
 #: templates/home.html:81 templates/cities/show.html:18
 msgid "Reports Fixed"
-msgstr "Rapports Résolus"
+msgstr "Rapports résolus"
 
 #: templates/home.html:86 templates/cities/show.html:22
 msgid "Reports Updated"
-msgstr "Rapports Mis à Jour"
+msgstr "Rapports mis à jour"
 
 #: templates/home.html:90 templates/cities/_report_count_table.html:29
 msgid "As reported by fixmystreet.ca users."
@@ -331,7 +331,7 @@ msgstr ""
 "\n"
 "Aidez-nous à diffuser le mot. Plus les gens connaissent Terralego, plus "
 "le site sera utile. Partagez votre rapport sur Twitter ou Facebook, \n"
-"ou accrocher un poster dans un café d'université ou de votre quartier. \n"
+"ou accrochez un poster dans un café d'université ou de votre quartier. \n"
 
 #: templates/posters.html:18
 msgid "Poster"
@@ -412,16 +412,16 @@ msgstr ""
 "\n"
 "<h4>A propos de cette politique</h4> \n"
 "\n"
-"<p> Cette politique de confidentialité définit la manière dont terralego."
-"ca utilise et \n"
+"<p> Cette politique de confidentialité définit la manière dont terralego"
+" utilise et \n"
 "protège les informations que vous donnez à terralego lorsque \n"
-"vous utilisez ce site. Fixmystreet.ca s'engage à assurer \n"
+"vous utilisez ce site. Terralego s'engage à assurer \n"
 "que votre intimité est protégée. </p> \n"
 "\n"
 "<h4>Ce que nous collectons</h4> \n"
 "\n"
 "<p> Quand vous soumettez un rapport, ou créer un compte avec \n"
-"Fixmystreet.ca, nous recueillons les informations suivantes: \n"
+"Terralego, nous recueillons les informations suivantes: \n"
 "</p> \n"
 "<ul> \n"
 "\t <li> votre nom </ li> \n"
@@ -489,7 +489,7 @@ msgstr ""
 
 #: templates/search_result.html:20
 msgid "Nearby Reports"
-msgstr "Rapports du Quartier"
+msgstr "Rapports du quartier"
 
 #: templates/search_result.html:25
 msgid "fixed"
@@ -550,7 +550,7 @@ msgstr "Auteur"
 
 #: templates/account/home.html:40
 msgid "Updater"
-msgstr "Auteur Secondaire"
+msgstr "Auteur secondaire"
 
 #: templates/account/home.html:41
 msgid "Subscriber"
@@ -558,7 +558,7 @@ msgstr "Abonné"
 
 #: templates/account/home.html:49
 msgid "You haven't yet filed any reports."
-msgstr "Vous avez soumis aucun rapport."
+msgstr "Vous n'avez soumis aucun rapport."
 
 #: templates/admin/base_site.html:4
 msgid "FixMyStreet.ca Admin"
@@ -570,15 +570,15 @@ msgstr "Terralego Administration"
 
 #: templates/admin/login.html:19
 msgid "Username:"
-msgstr "Nom d'Utilisateur:"
+msgstr "Nom d'utilisateur:"
 
 #: templates/admin/login.html:22
 msgid "Password:"
-msgstr "Mot de Passe:"
+msgstr "Mot de passe:"
 
 #: templates/admin/login.html:27
 msgid "Log in"
-msgstr "Log in"
+msgstr "Se connecter"
 
 #: templates/ajax/category_description.html:2 templates/reports/new.html:76
 msgid "Please Note"
@@ -593,20 +593,20 @@ msgid ""
 "Please contact the City directly regarding hate or racist graffiti by "
 "calling #311."
 msgstr ""
-"S'il vous plaît contactez directement la ville en ce qui concerne les "
-"graffitis racistes ou haineux en appelant # 311."
+"Merci de contacter directement la ville en ce qui concerne les "
+"graffitis racistes ou haineux."
 
 #: templates/cities/_report_count_table.html:7
 msgid "New Problems"
-msgstr "Nouveaux Problèmes"
+msgstr "Nouveaux problèmes"
 
 #: templates/cities/_report_count_table.html:8
 msgid "Older Unresolved Problems"
-msgstr "Problèmes Pas Encore Résolu"
+msgstr "Problèmes pas encore résolu"
 
 #: templates/cities/_report_count_table.html:9
 msgid "Recently Fixed"
-msgstr "Résolu Récemment"
+msgstr "Résolu récemment"
 
 #: templates/cities/_report_count_table.html:10
 msgid "Old Fixed"
@@ -618,11 +618,11 @@ msgstr "Signalez, examinez ou discutez des problèmes locaux"
 
 #: templates/cities/index.html:3 templates/cities/index.html.py:23
 msgid "All Reports"
-msgstr "Tous les Rapports"
+msgstr "Tous les rapports"
 
 #: templates/cities/index.html:24
 msgid "Reports by City"
-msgstr "Rapports par Ville"
+msgstr "Rapports par ville"
 
 #: templates/cities/show.html:4 templates/cities/show.html.py:8
 #: templates/promotions/show.html:4 templates/wards/show.html:3
@@ -632,11 +632,11 @@ msgstr "Rapports par"
 
 #: templates/cities/show.html:11
 msgid "City Stats"
-msgstr "Statistiques Municipales"
+msgstr "Statistiques municipales"
 
 #: templates/cities/show.html:27
 msgid "Top Problems"
-msgstr "Problèmes Gradés"
+msgstr "Problèmes importants"
 
 #: templates/cities/show.html:30
 msgid "Rank"
@@ -648,11 +648,11 @@ msgstr "Problème"
 
 #: templates/cities/show.html:32
 msgid "Number of Subscribers"
-msgstr "Nombre d'Abonnés"
+msgstr "Nombre d'abonnés"
 
 #: templates/cities/show.html:48
 msgid "Reports by Ward"
-msgstr "Rapports par Quartier"
+msgstr "Rapports par quartier"
 
 #: templates/contact/new.html:9
 msgid ""
@@ -669,16 +669,16 @@ msgid ""
 msgstr ""
 "\n"
 "<p>\n"
-"\tS'il vous plait <strong>NE PAS</strong> signaler de problèmes par "
+"\tMerci de <strong>NE PAS</strong> signaler de problèmes par "
 "l'entremise de ce formulaire.\n"
 "\tLes messages vont à l'équipe de Terralego, pas aux Échevins "
 "Municipaux.\n"
 "</p>\n"
 "<p>\n"
-"\tPour signaler un problème, s'il vous plait suivre les instructions <a href="
+"\tPour signaler un problème, merci de suivre les instructions <a href="
 "\"/\">que vous trouverez ici</a>.\n"
 "</p>\n"
-"<p>Nous voulons vraiment obtenir vos commentaires sur ce site:</p> \n"
+"<p>Nous voulons obtenir vos commentaires sur ce site:</p> \n"
 
 #: templates/contact/new.html:25
 msgid "Send"
@@ -695,27 +695,27 @@ msgid ""
 "<a href=\"/\">Return to FixMyStreet.ca</a>\n"
 msgstr ""
 "\n"
-"<p>Merci pour nous avoir envoyer vos commentaires.</p>\n"
+"<p>Merci pour nous avoir envoyé vos commentaires.</p>\n"
 "<a href=\"/\">Retournez sur Terralego</a>\n"
 
 #: templates/promotions/show.html:8
 msgid "First 100 Reports"
-msgstr "Premier 100 Rapports"
+msgstr "Premier 100 rapports"
 
 #: templates/promotions/show.html:9
 msgid ""
 " out of the first 100 confirmed reports were filed with the promotional code "
 msgstr ""
-" de ces 100 premier rapports confirmé ont été enregistré avec le code de "
+" de ces 100 premiers rapports confirmés ont été enregistrés avec le code de "
 "promotion "
 
 #: templates/registration/activate.html:3
 msgid "Activation Complete"
-msgstr "Fin de l'Activation"
+msgstr "Fin de l'activation"
 
 #: templates/registration/activate.html:5
 msgid "Account Confirmed"
-msgstr "Compte Confirmé"
+msgstr "Compte confirmé"
 
 #: templates/registration/activate.html:6
 msgid "Thanks for signing up!"
@@ -751,7 +751,7 @@ msgstr "Ou, log in en utilisant:"
 
 #: templates/registration/registration_complete.html:2
 msgid "Registration Complete"
-msgstr "Enregistrement Complet"
+msgstr "Enregistrement complet"
 
 #: templates/registration/registration_complete.html:4
 msgid "Check Your Inbox..."
@@ -766,11 +766,11 @@ msgstr ""
 
 #: templates/registration/registration_complete.html:7
 msgid "Please check your email."
-msgstr "S'il vous plaît vérifier votre email."
+msgstr "Merci de vérifier votre email."
 
 #: templates/registration/registration_form.html:3
 msgid "Register"
-msgstr "S'Enregistrer"
+msgstr "S'enregistrer"
 
 #: templates/registration/registration_form.html:18
 msgid "You are connected to fixmystreet.ca with:"
@@ -778,7 +778,7 @@ msgstr "Vous êtes connecté avec:"
 
 #: templates/registration/registration_form.html:22
 msgid "Disconnect"
-msgstr "Déconnecter"
+msgstr "Déconnectez vous"
 
 #: templates/registration/registration_form.html:25
 msgid "Join FixMyStreet.ca!"
@@ -818,7 +818,7 @@ msgstr "Nouveau Rapport"
 
 #: templates/reports/new.html:59
 msgid "Submitting a report"
-msgstr "Envoyé un rapport"
+msgstr "Envoyer un rapport"
 
 #: templates/reports/new.html:66
 msgid "* Optional"
@@ -826,14 +826,14 @@ msgstr "* Facultatif"
 
 #: templates/reports/new.html:78
 msgid "Please be polite, concise and to the point."
-msgstr "S'il vous plaît être poli, concis et précis."
+msgstr "S'il vous plaît soyez polis, concis et précis."
 
 #: templates/reports/new.html:79
 msgid ""
 "Please do not be abusive - abusing the service devalues the service for all "
 "users."
 msgstr ""
-"S'il vous plaît ne pas être abusif, ceci dévalue le service pour tous les "
+"Merci de ne pas être abusif, ceci dévalue le service pour tous les "
 "utilisateurs"
 
 #: templates/reports/new.html:80
@@ -857,7 +857,7 @@ msgstr ""
 
 #: templates/reports/new.html:97
 msgid "Where will my report be sent?"
-msgstr "Où mon rapport sera envoyé?"
+msgstr "Où mon rapport sera envoyé ?"
 
 #: templates/reports/show.html:35
 msgid ""
@@ -866,18 +866,24 @@ msgid ""
 "p><p>Your report will not be sent to city officials or be visible to other "
 "visitors until you have done so.</p>"
 msgstr ""
-"S'il vous plaît vérifier votre adresse courriel et cliquez sur le lien de "
+"S'il vous plaît vérifiez votre adresse courriel et cliquez sur le lien de "
 "confirmation pour compléter votre soumission. Votre rapport ne sera pas "
-"envoyé au département 311 de la Ville et ne sera pas visible aux autres "
-"visiteurs jusqu'à ce que vous l'avez fait."
+"visible aux autres "
+"visiteurs jusqu'à ce que vous l'ayez fait."
 
 #: templates/reports/show.html:53
 msgid "Category:"
 msgstr "Catégorie:"
 
+msgid "CATEGORY:"
+msgstr "Catégorie:"
+
 #: templates/reports/show.html:55
 msgid "Location:"
-msgstr "Location:"
+msgstr "Adresse:"
+
+msgid "LOCATION:"
+msgstr "Adresse:"
 
 #: templates/reports/show.html:57
 msgid "Filed by:"
@@ -922,7 +928,7 @@ msgstr ""
 
 #: templates/reports/flags/new.html:4
 msgid "Flag an Offensive Report"
-msgstr "Identifiez un Rapport comme étant Offensif"
+msgstr "Identifiez un Rapport comme étant offensif"
 
 #: templates/reports/flags/new.html:5
 msgid ""
@@ -934,7 +940,7 @@ msgstr ""
 
 #: templates/reports/flags/new.html:11
 msgid "Flag this Report"
-msgstr "Identifiez ce Rapport"
+msgstr "Identifiez ce rapport"
 
 #: templates/reports/flags/thanks.html:4
 msgid ""
@@ -950,11 +956,11 @@ msgstr ""
 
 #: templates/reports/subscribers/confirm.html:4
 msgid "Subscribe Complete"
-msgstr "Abonnement Complet"
+msgstr "Abonnement complet"
 
 #: templates/reports/subscribers/confirm.html:5
 msgid "You have subscribed to updates to"
-msgstr "Vous vous avez abonné aux mises à jour de"
+msgstr "Vous vous êtes abonnsé aux mises à jour de"
 
 #: templates/reports/subscribers/create.html:5
 msgid ""
@@ -974,28 +980,28 @@ msgid ""
 "email.)</p>\n"
 msgstr ""
 "\n"
-"<h2>Presque Fini! Maintenant vérifions votre courriel...</h2>\n"
+"<h2>Presque fini! Maintenant vérifions votre courriel...</h2>\n"
 "\n"
-"<p>La confirmation par courriel pourait prendre quelques minute à arriver, s."
-"v.p. soyer patient.</p>\n"
+"<p>La confirmation par courriel peut prendre quelques minute à arriver, s."
+"v.p. soyez patient.</p>\n"
 "\n"
 "<p>Si vous utilisez un logiciel de courriel sur le Web ou un logiciel pour "
-"filter les courriels indésirables, s.v.p. vérifier vos dossiers de courriel "
+"filtrer les courriels indésirables, merci de vérifier vos dossiers de courriel "
 "spam.\n"
 "Vous devez maintenant cliquer sur le lien dans le courriel que nous venons "
 "de vous envoyer – si vous ne le faite pas, votre alerte ne sera pas activée."
 "</p>\n"
 "\n"
 "<p>(Ne vous inquiétez pas - nous nous rappellerons de votre alerte pendant "
-"que vous vérifier votre courriel.)</p>\n"
+"que vous vérifiez votre courriel.)</p>\n"
 
 #: templates/reports/subscribers/new.html:3
 msgid "Subscribe to a Report"
-msgstr "Abonnez-vous aux Mises à Jour d'un Rapport"
+msgstr "Abonnez-vous aux mises à jour d'un rapport"
 
 #: templates/reports/subscribers/new.html:8
 msgid "Subscribe to Updates to Report"
-msgstr "Abonnez-vous aux Mises à Jour des Rapports"
+msgstr "Abonnez-vous aux mises à jour des rapports"
 
 #: templates/reports/subscribers/new.html:9
 msgid "Enter your email address to subscribe to updates for this report:"
@@ -1025,18 +1031,18 @@ msgstr ""
 "\n"
 "<h2>Presque Fini! Maintenant vérifions votre courriel...</h2>\n"
 "\n"
-"<p>La confirmation par courriel pourait prendre quelques minute à arriver, s."
-"v.p. soyer patient.</p>\n"
+"<p>La confirmation par courriel peut prendre quelques minute à arriver, merci de"
+"patienter.</p>\n"
 "\n"
 "<p>Si vous utilisez un logiciel de courriel sur le Web ou un logiciel pour "
-"filter les courriels indésirables, s.v.p. vérifier vos dossiers de courriel "
+"filtrer les courriels indésirables, merci de vérifier vos dossiers de courriel "
 "spam.\n"
 "Vous devez maintenant cliquer sur le lien dans le courriel que nous venons "
 "de vous envoyer – si vous ne le faite pas, votre mise à jour ne sera pas "
 "activée.</p>\n"
 "\n"
 "<p>(Ne vous inquiétez pas - nous nous rappellerons de votre mise à jour "
-"pendant que vous vérifier votre courriel.)</p>\n"
+"pendant que vous vérifiez votre courriel.)</p>\n"
 
 #: templates/wards/_info_box.html:7
 msgid "Councillor"
