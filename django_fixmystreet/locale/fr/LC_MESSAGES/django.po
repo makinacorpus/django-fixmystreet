@@ -105,7 +105,7 @@ msgstr "Détails"
 
 #: django_fixmystreet/models.py:341
 msgid "Location"
-msgstr "Location"
+msgstr "Adresse"
 
 #: django_fixmystreet/views/main.py:54
 msgid ""
@@ -874,8 +874,8 @@ msgstr ""
 msgid "Category:"
 msgstr "Catégorie:"
 
-msgid "CATEGORY:"
-msgstr "Catégorie:"
+msgid "Category"
+msgstr "Catégorie"
 
 #: templates/reports/show.html:55
 msgid "Location:"

@@ -317,7 +317,7 @@ class ApiKey(models.Model):
 
 class Report(models.Model):
     title = models.CharField(max_length=100, verbose_name = ugettext_lazy("Subject"))
-    category = models.ForeignKey(ReportCategory,null=True)
+    category = models.ForeignKey(ReportCategory,null=True,verbose_name = ugettext_lazy("Category"))
     ward = models.ForeignKey(Ward,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
