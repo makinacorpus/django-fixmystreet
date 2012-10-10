@@ -112,8 +112,7 @@ msgid ""
 "Sorry, we don't yet have that area in our database. Please have your area "
 "councillor contact fixmystreet.ca."
 msgstr ""
-"Désolé, nous n'avons pas cette région dans notre base de données. S'il vous "
-"plaît demander à votre échevin municipal qu'il contacte fixmystreet.ca."
+"Désolé, nous n'avons pas cette région dans notre base de données. Veuillez nous contacter."
 
 #: django_fixmystreet/views/reports/subscribers.py:19
 msgid "You are already subscribed to this report."
@@ -180,7 +179,7 @@ msgstr ""
 
 #: templates/base.html:20
 msgid "FixMyStreet.ca"
-msgstr "FixMyStreet (Réparer ma rue) Canada"
+msgstr "Terralego"
 
 #: templates/base.html:20
 msgid "Home"
@@ -311,7 +310,7 @@ msgstr "Rapports Mis à Jour"
 
 #: templates/home.html:90 templates/cities/_report_count_table.html:29
 msgid "As reported by fixmystreet.ca users."
-msgstr "Comme indiqué par les utilisateurs de fixmystreet.ca."
+msgstr "Comme indiqué par les utilisateurs de Terralego."
 
 #: templates/home.html:93
 msgid "Recent Reports"
@@ -330,7 +329,7 @@ msgid ""
 "or hang a poster at a university or neighbourhood coffee shop.\n"
 msgstr ""
 "\n"
-"Aidez-nous à diffuser le mot. Plus les gens connaissent fixmystreet.ca, plus "
+"Aidez-nous à diffuser le mot. Plus les gens connaissent Terralego, plus "
 "le site sera utile. Partagez votre rapport sur Twitter ou Facebook, \n"
 "ou accrocher un poster dans un café d'université ou de votre quartier. \n"
 
@@ -413,9 +412,9 @@ msgstr ""
 "\n"
 "<h4>A propos de cette politique</h4> \n"
 "\n"
-"<p> Cette politique de confidentialité définit la manière dont fixmystreet."
+"<p> Cette politique de confidentialité définit la manière dont terralego."
 "ca utilise et \n"
-"protège les informations que vous donnez fixmystreet.ca lorsque \n"
+"protège les informations que vous donnez à terralego lorsque \n"
 "vous utilisez ce site. Fixmystreet.ca s'engage à assurer \n"
 "que votre intimité est protégée. </p> \n"
 "\n"
@@ -469,8 +468,8 @@ msgstr ""
 "\n"
 "<h4> Questions </h4> \n"
 "\n"
-"<p>Pour toutes questions concernant fixmystreet.ca, \n"
-"contactez info@fixmystreet.ca, ou utilisez le formulaire de contact \n"
+"<p>Pour toutes questions concernant terralego, \n"
+"utilisez le formulaire de contact \n"
 "fourni sur le site. </p> \n"
 "\n"
 "<h4>Date d'effet </h4> \n"
@@ -563,11 +562,11 @@ msgstr "Vous avez soumis aucun rapport."
 
 #: templates/admin/base_site.html:4
 msgid "FixMyStreet.ca Admin"
-msgstr "FixMyStreet.ca Administrateur"
+msgstr "Terralego Administrateur"
 
 #: templates/admin/base_site.html:15
 msgid "FixMyStreet.ca Administration"
-msgstr "FixMyStreet.ca Administration"
+msgstr "Terralego Administration"
 
 #: templates/admin/login.html:19
 msgid "Username:"
@@ -672,7 +671,7 @@ msgstr ""
 "<p>\n"
 "\tS'il vous plait <strong>NE PAS</strong> signaler de problèmes par "
 "l'entremise de ce formulaire.\n"
-"\tLes messages vont à l'équipe de FixMyStreet.ca, pas aux Échevins "
+"\tLes messages vont à l'équipe de Terralego, pas aux Échevins "
 "Municipaux.\n"
 "</p>\n"
 "<p>\n"
@@ -697,7 +696,7 @@ msgid ""
 msgstr ""
 "\n"
 "<p>Merci pour nous avoir envoyer vos commentaires.</p>\n"
-"<a href=\"/\">Retournez à FixMyStreet.ca</a>\n"
+"<a href=\"/\">Retournez sur Terralego</a>\n"
 
 #: templates/promotions/show.html:8
 msgid "First 100 Reports"
@@ -724,7 +723,7 @@ msgstr "Merci pour votre inscription!"
 
 #: templates/registration/activate.html:8
 msgid "Return to FixMyStreet.ca"
-msgstr "Retour à FixMyStreet (Réparer ma rue) Canada"
+msgstr "Retour à Terralego"
 
 #: templates/registration/error.html:9
 msgid "Login Error"
@@ -775,7 +774,7 @@ msgstr "S'Enregistrer"
 
 #: templates/registration/registration_form.html:18
 msgid "You are connected to fixmystreet.ca with:"
-msgstr "Vous être connecter à fixmystreet.ca avec:"
+msgstr "Vous êtes connecté avec:"
 
 #: templates/registration/registration_form.html:22
 msgid "Disconnect"
@@ -783,7 +782,7 @@ msgstr "Déconnecter"
 
 #: templates/registration/registration_form.html:25
 msgid "Join FixMyStreet.ca!"
-msgstr "Inscrivez-vous à FixMyStreet.ca!"
+msgstr "Inscrivez-vous !"
 
 #: templates/registration/registration_form.html:27
 msgid "We need a few more pieces of information to continue..."
@@ -851,7 +850,7 @@ msgid ""
 "can be fixed. If your problem is not appropriate for submission via this "
 "site please contact city officials directly."
 msgstr ""
-"Rappelez-vous que FixMyStreet est surtout pour signaler les problèmes "
+"Rappelez-vous que Terralego sert surtout pour signaler les problèmes "
 "physiques qui peuvent être addressés. Si votre problème n'est pas approprié "
 "pour ce site, rappelez-vous que vous pouvez contacter directement les "
 "fonctionnaires municipaux."
@@ -1058,7 +1057,7 @@ msgstr "Aucun problème n'a été signalé."
 #: templates/wards/show.html:25
 msgid "Note: fixmystreet.ca relies on users to report problems as fixed."
 msgstr ""
-"Note: fixmystreet.ca s'appuie sur les utilisateurs pour signaler les "
+"Note: Terralego s'appuie sur les utilisateurs pour signaler les "
 "problèmes comme étant résolus."
 
 #~ msgid "Promotions"
